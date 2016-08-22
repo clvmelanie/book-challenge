@@ -48,12 +48,17 @@ div.navbar a:hover {
 }
 
 img.about-img {
-  border: 5px solid orange;
+  border-radius: 7%;
+  box-shadow: 10px 10px 15px gray;
   display: block;
   margin: auto;
+  margin-top:50px;
   width: 50%;
 }
 
 h3.about-caption {
+  margin-bottom: 75px;
   text-align: center;
+  text-decoration: overline;
+
 }
