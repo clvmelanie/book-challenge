@@ -53,3 +53,7 @@ img.about-img {
   margin: auto;
   width: 50%;
 }
+
+h3.about-caption {
+  text-align: center;
+}
