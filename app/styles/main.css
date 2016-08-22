@@ -1,0 +1,55 @@
+.body-style {
+  background-color: #f2f2f2;
+}
+
+div.menu {
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+}
+
+div.menu-drinks {
+  font-size: 2em;
+}
+
+span.menu-drinks-left-col {
+  padding-left: 100px;
+}
+
+span.menu-drinks-right-col {
+  padding-left: 80px;
+}
+
+div.menu-title {
+  font-size: 3em;
+  font-weight: bold;
+  text-decoration: underline;
+  text-align: center;
+}
+
+div.navbar {
+  margin: auto;
+  text-align: center;
+  text-decoration: none;
+}
+
+div.navbar a {
+  color: #8c8c8c;
+  font-size: 30px;
+  margin:50px;
+  text-decoration: none;
+}
+
+div.navbar a:hover {
+  color: #ff944d;
+  font-size: 30px;
+  margin:50px;
+  text-decoration: none;
+}
+
+img.about-img {
+  border: 5px solid orange;
+  display: block;
+  margin: auto;
+  width: 50%;
+}
