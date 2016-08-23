@@ -54,11 +54,23 @@ img.about-img {
   margin: auto;
   margin-top:50px;
   width: 50%;
+  -webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+	-webkit-transition: .2s ease-in-out;
+	transition: .2s ease-in-out;
 }
 
+img.about-img:hover {
+	-webkit-filter: grayscale(0);
+	filter: grayscale(0);
+}
+
+
 h3.about-caption {
+  font-family: Didot, serif;
   margin-bottom: 75px;
   text-align: center;
+  color: #ff6600;
   text-decoration: overline;
 
 }
