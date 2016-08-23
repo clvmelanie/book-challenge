@@ -28,23 +28,46 @@ div.menu-title {
 }
 
 div.navbar {
-  margin: auto;
-  text-align: center;
+  float:right;
+  font-family: Didot, serif;
+  margin-top: 70px;
+  padding-right: 40px;
+  text-align: right;
   text-decoration: none;
+  width: 400px;
 }
 
 div.navbar a {
   color: #8c8c8c;
-  font-size: 30px;
-  margin:50px;
+  font-size: 20px;
+  margin:25px;
   text-decoration: none;
 }
 
+
 div.navbar a:hover {
   color: #ff944d;
-  font-size: 30px;
-  margin:50px;
+  font-size: 20px;
+  margin:25px;
   text-decoration: none;
+}
+
+header.navbar-header {
+  border-bottom: 2px solid #ff6600;
+  height: 100px;
+  margin-bottom: 50px;
+  width: 100%;
+}
+
+h1.header-name {
+  float:left;
+  font-family: Didot, serif;
+  font-size: 48px;
+  font-weight: bold;
+  margin-top: 50px;
+  margin-left: 350px;
+  text-align: center;
+  width: 500px;
 }
 
 img.about-img {
@@ -72,5 +95,4 @@ h3.about-caption {
   text-align: center;
   color: #ff6600;
   text-decoration: overline;
-
 }
