@@ -2,6 +2,33 @@
   background-color: #f2f2f2;
 }
 
+div.contact-box {
+  background-color: black;
+  border-bottom: 6px solid #ff6600;
+  color: #f2f2f2;
+  font-family: 'Roboto Slab', serif;
+  height: 400px;
+  text-align: center;
+  width: 25%;
+}
+
+div.cs-contact-heading {
+  font-size: 32px;
+  text-decoration: underline;
+}
+
+#cs-hours-box {
+  float: left;
+  margin-left: 310px;
+  margin-top: 25px;
+}
+
+#cs-location-box {
+  float: right;
+  margin-right: 330px;
+  margin-top: 25px;
+}
+
 div.menu {
   margin-left: auto;
   margin-right: auto;
@@ -52,14 +79,14 @@ div.navbar a:hover {
   text-decoration: none;
 }
 
-header.navbar-header {
+header.cs-navbar-header {
   border-bottom: 2px solid #ff6600;
   height: 100px;
   margin-bottom: 50px;
   width: 100%;
 }
 
-h1.header-name {
+h1.cs-header-name {
   float:left;
   font-family: Didot, serif;
   font-size: 48px;
