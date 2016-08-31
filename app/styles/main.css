@@ -16,8 +16,9 @@ div.contact-box {
 }
 
 div.cs-contact-heading {
-  font-size: 32px;
+  font-size: 38px;
   margin-top: 25px;
+  text-align: center;
   text-decoration: underline;
 }
 
@@ -34,8 +35,11 @@ div.cs-contact-content {
   text-align: center;
 }
 
-#cs-socmedia-box {
-
+.cs-socmedia-content {
+  font-size: 20px;
+  float:left;
+  margin-left: 75px;
+  margin-top: 20px;
 }
 
 div.menu {
