@@ -1,3 +1,6 @@
-
-
-<img ng-src="https://static.pexels.com/photos/32059/pexels-photo-large.jpg" class="about-img"></img>
+<div ng-controller="AboutController as aboutCtrl">
+  <div ng-repeat="image in aboutCtrl.images">
+    <img ng-src="{{image.image}}" class="about-img"></img>
+    <h3 class="about-caption">{{image.caption}}</h3>
+  </div>
+</div>
