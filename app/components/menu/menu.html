@@ -1,15 +1,14 @@
 <div ng-controller="MenuController as menuCtrl">
-
-<div class="menu">
-  <div class="menu-title">Drink Menu</div>
-    <div class="menu-drinks" ng-repeat="drink in menuCtrl.drinks">
-      <span class="col-xs-6 menu-drinks-left-col">
-        {{drink.name}}
-      </span>
-      <span class="col-xs-6 menu-drinks-right-col">
-        {{drink.price | currency}}
-      </span>
+  <div class="menu">
+    <div class="menu-title">Drink Menu</div>
+      <div class="menu-drinks" ng-repeat="drink in menuCtrl.drinks">
+        <span class="col-xs-6 menu-drinks-left-col">
+          {{drink.name}}
+        </span>
+        <span class="col-xs-6 menu-drinks-right-col">
+          {{drink.price | currency}}
+        </span>
+      </div>
     </div>
   </div>
-</div>
 </div>
