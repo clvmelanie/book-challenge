@@ -1,19 +1,22 @@
 <!DOCTYPE html>
-<html ng-app="CoffeeShop">
+<html ng-app="BookChallenge">
 <head>
-  <title>Books!</title>
+  <title>Read the Globe</title>
   <link rel="stylesheet" href="styles/main.css"></link>
   <link rel="stylesheet" href="styles/bootstrap.css"></link>
   <link rel="stylesheet" href="styles/bootstrap-theme.css"></link>
+  <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
+  <link rel="stylesheet" href="styles/fonts/rubberstamp-webfont-stylesheet.css" type="text/css" charset="utf-8" />
   <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
 </head>
 
-<body class="cs-body-style">
+<body class="bookchallenge-body-style">
 
-  <cs-navbar></cs-navbar>
+  <div class="rtg-site-header">Read the Globe</div>
   <div ng-view></div>
 
 </body>
+
 
 <!-- Vendors -->
 
@@ -22,22 +25,17 @@
 <script src="vendors/angular.min.js"></script>
 <script src="vendors/angular-route.js"></script>
 
-
 <!-- App -->
 <script src="javascript/app.js"></script>
 <script src="javascript/routes.js"></script>
 
 <!-- Directives -->
-<script src="components/navbar/cs-navbar.js"></script>
+
 
 <!-- Controllers -->
-<script src="components/menu/menuCtrl.js"></script>
-<script src="components/about/aboutCtrl.js"></script>
-<script src="components/contact/contactCtrl.js"></script>
+<script src="components/profile/profileCtrl.js"></script>
 
 <!-- Services -->
-<script src="services/itemService.js"></script>
-<script src="services/galleryService.js"></script>
-<script src="services/responsiveService.js"></script>
+
 
 </html>

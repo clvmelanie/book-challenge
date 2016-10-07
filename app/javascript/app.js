@@ -1,1 +1,1 @@
-angular.module('CoffeeShop', ['ngRoute']);
+angular.module('BookChallenge', ['ngRoute']);

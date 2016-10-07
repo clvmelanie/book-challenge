@@ -1,17 +1,14 @@
-angular.module("CoffeeShop")
+angular.module("BookChallenge")
 
   .config(function($routeProvider){
     $routeProvider
-      .when('/menu', {
-        templateUrl: "components/menu/menu.html",
-        controller: "MenuController"
+      .when('/', {
+        templateUrl: "components/home/home.html",
+        controller: "HomeController"
       })
-      .when('/about', {
-        templateUrl: "components/about/about.html",
-        controller: "AboutController"
+      .when('/profile', {
+        templateUrl: "components/profile/profile.html",
+        controller: "ProfileController"
       })
-      .when('/contact', {
-        templateUrl: "components/contact/contact.html",
-        controller: "ContactController"
-      });
+      .otherwise({redirectTo:'/'});
   });
