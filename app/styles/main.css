@@ -13,6 +13,14 @@ div {
   text-align: justify;
   width:700px;
 }
+.rtg-intro-blurb div{
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.rtg-intro-blurb ul{
+  font-size: 25px;
+}
 
 .rtg-intro-statement{
   font-family: 'Roboto Slab', serif;
@@ -38,6 +46,46 @@ div {
   margin:auto;
 }
 
+.rtg-navbar-menu{
+  background-color: white;
+  height: 70px;
+  width: 100%;
+  top: 0;
+  position: fixed;
+}
+
+.rtg-navbar-span{
+  float:right;
+  margin: 12px;
+  margin-right: 100px;
+}
+
+#log-in-top{
+  background-color: #33ff77;
+  border-color: #33ff77;
+}
+
+.rtg-navbar-span a{
+  background-color: #00cc44;
+  border: 2px solid #00cc44;
+  border-radius: 16px;
+  box-shadow: -1px 2px 4px 0px rgba(0,0,0,0.16),inset 0px -2px 7px 0px rgba(0,0,0,0.1),inset 0px 2px 0px 0px rgba(255,255,255,0.3);
+  color: white;
+  font-size: 18px;
+  margin-right: 15px;
+  padding: 9px;
+}
+
+.rtg-navbar-span a:hover{
+  box-shadow: 2px 2px 4px 0px rgba(0,0,0,0),inset 0px 5px 7px 0px rgba(0,0,0,0.1),inset 0px 2px 0px 0px rgba(255,255,255,0.3);
+  color:white;
+  text-decoration:none;
+}
+
+.rtg-profile-picture{
+  border-radius: 16px;
+}
+
 .rtg-login-section, .rtg-signup-section{
   margin-top: 100px;
 }
@@ -50,14 +98,30 @@ div {
   font-family: 'mailart_rubberstampregular';
   font-size: 75px;
   font-weight: bold;
+  margin-top: 90px;
   text-align:center;
 }
 
 #log_in,#sign_up {
   background-color: #00cc44;
-  border-radius: 5%;
+  border-radius: 16px;
+  box-shadow: -1px 2px 2px 0px rgba(0,0,0,0.16),inset 0px -2px 7px 0px rgba(0,0,0,0.1),inset 0px 2px 0px 0px rgba(255,255,255,0.3);
   color: white;
   font-family: 'Roboto Slab', serif;
   font-size: 22px;
   padding: 0px;
+}
+
+#log_in:hover,#sign_up:hover {
+  box-shadow: 2px 2px 2px 0px rgba(0,0,0,0),inset 0px 5px 7px 0px rgba(0,0,0,0.1),inset 0px 2px 0px 0px rgba(255,255,255,0.3);
+}
+
+#rtg-dropdown-menu{
+  background-color: #CCC;
+  display: none;
+  height: auto;
+  position: absolute;
+  top: 58px;
+  right: 0;
+  width: 100px;
 }

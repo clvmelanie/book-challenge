@@ -192,7 +192,7 @@ angular.module('BookChallenge')
   }
 
   function getColor(d) {
-      return d === true ? '#990099' : '#FFFFFF';
+      return d === true ? '#00cc44' : '#FFFFFF';
   }
 
   function style(feature) {
@@ -215,4 +215,5 @@ angular.module('BookChallenge')
   }).addTo(map);
 
   L.geoJson(countryData, {style: style}).addTo(map);
+
 });
