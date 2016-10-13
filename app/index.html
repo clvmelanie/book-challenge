@@ -5,33 +5,16 @@
   <link rel="stylesheet" href="styles/main.css"></link>
   <link rel="stylesheet" href="styles/bootstrap.css"></link>
   <link rel="stylesheet" href="styles/bootstrap-theme.css"></link>
+  <link rel="stylesheet" href="styles/ammap.css"></link>
   <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
   <link rel="stylesheet" href="styles/fonts/rubberstamp-webfont-stylesheet.css" type="text/css" charset="utf-8" />
   <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+  <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
 </head>
 
 <body class="bookchallenge-body-style">
 
-  <div class="rtg-navbar-menu">
-    <span class="rtg-navbar-span">
-      <a id="log-in-top"href="#">Log In</a>
-      <a href="#">Sign Up</a>
-      <div style="position: relative; display: inline-block;">
-        <img src="http://placehold.it/50" class="rtg-profile-picture" />
-        <div id="rtg-dropdown-menu">
-          <ul>
-            <li>AAAAA</li>
-            <li>BBBBB</li>
-            <li>CCCCC</li>
-            <li>DDDDD</li>
-          </ul>
-        </div>
-      </div>
-    </span>
-  </div>
-
-
-
+  <rtg-navbar-menu></rtg-navbar-menu>
   <div class="rtg-site-header">Read the Globe</div>
   <div ng-view></div>
 
@@ -41,6 +24,12 @@
 
 <script src="vendors/jquery-3.1.0.min.js"></script>
 <script src="vendors/bootstrap.min.js"></script>
+
+<script src="https://www.amcharts.com/lib/3/ammap.js"></script>
+<script src="https://www.amcharts.com/lib/3/maps/js/worldLow.js"></script>
+<script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+<script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
 <script src="vendors/angular.min.js"></script>
 <script src="vendors/angular-route.js"></script>
 
@@ -49,6 +38,7 @@
 <script src="javascript/routes.js"></script>
 
 <!-- Directives -->
+<script src="components/home/homeCtrl.js"></script>
 <script src="components/navbar/rtg-navbar-menu.js"></script>
 
 <!-- Controllers -->

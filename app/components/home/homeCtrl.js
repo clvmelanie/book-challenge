@@ -1,4 +1,4 @@
 angular.module('BookChallenge')
-  .controller('ProfileController', function(){
-    
-  };
+  .controller('HomeController', ['$scope', function($scope){
+
+  }]);
