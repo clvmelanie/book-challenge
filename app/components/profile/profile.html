@@ -1,21 +1,22 @@
 
-<!-- <object id="rtg-svg-map" data="images/worldHigh.svg" type="image/svg+xml"></object>
+<div id="chartdiv"></div>
 
-<div id="rtg-tooltip">WOOOOOO</div>
+<form ng-submit="submit()">
+  <input type="search" placeholder="Search Book Titles" id="book-search-box"></input>
+  <button type="submit" id="book-submit-button">Submit</button>
+</form>
 
-<div class="rtg-stats-wrapper">
-  <div>Countries Read:</div>
-  <div>Percent of the World Read:</div>
-  <div>Pages Read:</div>
+<div id="rtg-results-wrapper">
+  <div id="rtg-search-results" ng-repeat="book in bookList">
+    <img ng-src="{{book.thumbnailImage}}" ng-click="toggleSelectedBook()"></img><br>
+    {{book.title}}<br>
+    by<br>
+    {{book.author}}
+  </div>
 </div>
 
-<div id="chartdiv"></div> -->
-
-<!-- Styles -->
-
-<!-- Resources -->
-
-<!-- Chart code -->
-
-<!-- HTML -->
-<div id="chartdiv"></div>
+<form ng-show="selectedBook">
+  <select>
+    <option ng-repeat="country in mapCountries" value="{{country.title}}">{{country.title}}</option>
+  </select>
+</form>

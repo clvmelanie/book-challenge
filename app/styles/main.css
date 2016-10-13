@@ -52,6 +52,7 @@ div {
   width: 100%;
   top: 0;
   position: fixed;
+  z-index: 9999;
 }
 
 .rtg-navbar-span{
@@ -127,6 +128,16 @@ div {
   right: 0;
   width: 100px;
 }
+
+#rtg-results-wrapper{
+  height: 250px;
+  padding: 10px;
+}
+
+#rtg-search-results{
+  margin-bottom: 50px;
+}
+
 
 #rtg-svg-map{
   height: 700px;

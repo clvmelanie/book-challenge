@@ -1,21 +1,51 @@
 angular.module('BookChallenge')
-.controller('ProfileController', ['$http', function($http){
+.controller('ProfileController', ['$http', '$scope', function($http, $scope){
 
-  var mapCountries = AmCharts.maps.worldLow.svg.g.path;
-  var goodReadsApiKey = 'ZywOwAHPQbeb27l4JbegA';
+  $scope.mapCountries = AmCharts.maps.worldLow.svg.g.path;
+  $scope.bookList = [];
+  $scope.selectedBook = false;
 
-  $http({
-    method: 'GET',
-    url: 'https://www.goodreads.com/search',
-    params: {
-      q: '0439554934',
-      key: goodReadsApiKey
-    }
-  }).then(function (response) {
-    console.log(response);
-  }, function (response) {
-    console.log('Got an error!', response);
-  });
+  $scope.submit = function() {
+    var searchTerm = "";
+    searchTerm = document.getElementById("book-search-box").value;
+    console.log(searchTerm);
+
+    $http({
+      method: 'GET',
+      url: 'https://www.googleapis.com/books/v1/volumes',
+      dataType: 'json',
+      headers: {
+          "Content-Type": "application/json"
+      },
+      params: {
+        q: {
+          title: searchTerm
+        }
+      }
+    }).then(function (response) {
+      if (!!response && !!response.data && !!response.data.items) {
+        $scope.bookList = [];
+        for (var i = 0; i < response.data.items.length; i++) {
+          var volumeInfo = response.data.items[i].volumeInfo;
+          var author = !!volumeInfo.authors ? volumeInfo.authors[0] : '';
+          $scope.bookList.push({
+            author: author,
+            title: volumeInfo.title,
+            thumbnailImage: volumeInfo.imageLinks.thumbnail
+          });
+        }
+      }
+    }, function (response) {
+      console.log('Got an error!', response);
+    });
+
+  };
+
+  $scope.toggleSelectedBook = function () {
+    $scope.selectedBook = !$scope.selectedBook;
+  };
+
+
 
   // var assignReadCountries = function (countriesRead) {
   //   for (var i = 0; i < mapCountries.length; i++) {
