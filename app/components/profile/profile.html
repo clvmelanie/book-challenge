@@ -1,19 +1,29 @@
 
 <div id="chartdiv"></div>
 
-<form ng-submit="submit()">
-  <input type="search" placeholder="Search Book Titles" id="book-search-box"></input>
-  <button type="submit" id="book-submit-button">Submit</button>
-</form>
+<div id="user-stats-section">
+  
+<div>
 
-<div id="rtg-results-wrapper">
-  <div id="rtg-search-results" ng-repeat="book in bookList">
-    <img ng-src="{{book.thumbnailImage}}" ng-click="toggleSelectedBook()"></img><br>
-    {{book.title}}<br>
-    by<br>
-    {{book.author}}
+<div id="search-book-titles">
+  <form ng-submit="submit()">
+    <input type="search" placeholder="Search Book Titles" id="book-search-box"></input>
+    <button type="submit" id="book-submit-button">Submit</button>
+  </form>
+
+  <div id="rtg-results-wrapper" class="sample-show-hide" ng-show="slideDown">
+    <div id="rtg-search-results" ng-repeat="book in bookList">
+      <img ng-src="{{book.thumbnailImage}}" ng-click="toggleSelectedBook()"></img><br>
+      {{book.title}}<br>
+      by<br>
+      {{book.author}}<br>
+      {{book.pageCount}} pages<br>
+      {{book.description}}
+    </div>
   </div>
 </div>
+
+
 
 <form ng-show="selectedBook">
   <select>

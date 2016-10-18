@@ -1,1 +1,1 @@
-angular.module('BookChallenge', ['ngRoute']);
+angular.module('BookChallenge', ['ngRoute', 'ngAnimate']);
