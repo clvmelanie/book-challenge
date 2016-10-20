@@ -156,7 +156,7 @@ footer{
 }
 
 .sample-show-hide {
-  max-height: 7000px;
+  max-height: 10000px;
   overflow-y: hidden;
   transition: max-height 2.0s ease-in-out;
 }
@@ -185,8 +185,9 @@ footer{
 }
 
 #search-book-titles{
-  border-bottom: 3px solid black;
-  border-top: 3px solid black;
+  background-color: #E2F4F4;
+  border-bottom: 3px solid #E2F4F4;
+  border-top: 3px solid #E2F4F4;
   margin-top: 30px;
 }
 

@@ -50,55 +50,31 @@ angular.module('BookChallenge')
       $scope.selectedBook = !$scope.selectedBook;
     };
 
+    var map = AmCharts.makeChart("chartdiv", {
+      "type": "map",
+      "theme": "light",
+      "projection": "miller",
+      "dataProvider": {
+        "map": "worldLow",
+        "getAreasFromMap": true,
+      },
+      "areasSettings": {
+        "autoZoom": false,
+        "color": "#b3b3b3",
+        "outlineThickness": "2",
+        "rollOverColor": "#5FBA73",
+        "selectable": false,
+        "balloonText": "[[title]]",
+        "selectedColor": "#FF0000"
+      },
+      "export": {
+        "enabled": true,
+        "position": "bottom-right"
+      }
+    });
 
+    // Initial drawing logic
+    map.dataProvider.areas[160].showAsSelected = true;
+    map.returnInitialColor(map.dataProvider.areas[160]);
 
-
-
-  // var assignReadCountries = function (countriesRead) {
-  //   for (var i = 0; i < mapCountries.length; i++) {
-  //     for (var j = 0; j < countriesRead.length; j++) {
-  //       if (mapCountries[i].id === countriesRead[j]) {
-  //         mapCountries[i].title = "We read from this place.";
-  //         break;
-  //       }
-  //     }
-  //   }
-  // };
-
-  // Do an http call to get user's data.
-
-  // Set countries to read if they have read it.
-  // var userObj = {
-  //   userId: 9999,
-  //   email: 'something@bullshit.com',
-  //   countriesRead: [
-  //     'US'
-  //   ]
-  // };
-
-  // assignReadCountries(userObj.countriesRead);
-  // mapCountries[0].title = "<img src='https://images-na.ssl-images-amazon.com/images/G/01/img15/pet-products/small-tiles/23695_pets_vertical_store_dogs_small_tile_8._CB312176604_.jpg'></img>"
-
-  var map = AmCharts.makeChart( "chartdiv", {
-    "type": "map",
-    "theme": "light",
-    "projection": "miller",
-
-    "dataProvider": {
-      "map": "worldLow",
-      "getAreasFromMap": true
-    },
-    "areasSettings": {
-      "autoZoom": false,
-      "color": "#b3b3b3",
-      "outlineThickness": "2",
-      "rollOverColor": "#5FBA73",
-      "selectable": "false",
-      "balloonText": "[[title]]"
-    },
-    "export": {
-      "enabled": true,
-      "position": "bottom-right"
-    }
-  });
 }]);
