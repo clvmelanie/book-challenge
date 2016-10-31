@@ -2,9 +2,9 @@
 <div id="chartdiv"></div>
 
 <div id="user-stats-section">
-  <div>Countries Read:<div>
-  <div>Pages Read:<div>
-  <div>Percent of the World Read:<div>
+  <div>Countries Read: {{userObj.countriesRead.length}}<div>
+  <div>Pages Read: {{userObj.pagesRead}}<div>
+  <div>Percent of the World Read: {{(userObj.countriesRead.length/176) * 100 | number : 1}} %<div>
 <div>
 
 <div id="search-book-titles">
@@ -14,7 +14,7 @@
   </form>
 
   <div id="rtg-results-wrapper" class="sample-show-hide" ng-show="slideDown">
-    <div id="rtg-search-results" ng-repeat="book in bookList">
+    <div id="rtg-search-results" ng-repeat="book in bookList" ng-click="johnTest(book)">
       <img ng-src="{{book.thumbnailImage}}" ng-click="toggleSelectedBook()"></img><br>
       {{book.title}}<br>
       by<br>
@@ -26,9 +26,9 @@
 </div>
 
 
-
-<form ng-show="selectedBook">
-  <select>
+<form ng-show="selectedBook" ng-submit="chooseCountry()">
+  <select id="country-choice-menu">
     <option ng-repeat="country in mapCountries" value="{{country.title}}">{{country.title}}</option>
   </select>
+  <button type="submit" id="country-submit-button">Submit</button>
 </form>

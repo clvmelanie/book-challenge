@@ -1,5 +1,5 @@
 angular.module('BookChallenge')
-.controller('ProfileController', ['$http', '$scope', '$window', '$timeout', function($http, $scope, $window, $timeout){
+.controller('ProfileController', ['$http', '$scope', '$window', '$timeout', '$cookies', function($http, $scope, $window, $timeout, $cookies){
 
   $scope.mapCountries = AmCharts.maps.worldLow.svg.g.path;
   $scope.bookList = [];
@@ -65,7 +65,7 @@ angular.module('BookChallenge')
         "rollOverColor": "#5FBA73",
         "selectable": false,
         "balloonText": "[[title]]",
-        "selectedColor": "#FF0000"
+        "selectedColor": "#5FBA73"
       },
       "export": {
         "enabled": true,
@@ -73,8 +73,81 @@ angular.module('BookChallenge')
       }
     });
 
-    // Initial drawing logic
-    map.dataProvider.areas[160].showAsSelected = true;
-    map.returnInitialColor(map.dataProvider.areas[160]);
 
+    $scope.userObj = {
+      booksRead: [],
+      email: "",
+      profilePic: ""
+    };
+
+    $http({
+      method: 'GET',
+      url: 'http://localhost:3000/books',
+      dataType: 'json',
+      headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer " + $cookies.get('token')
+      }
+    })
+    .then(
+      function(response){
+        $scope.userObj.booksRead = response.data.books_read;
+        console.log($scope.userObj)
+        $scope.highlightCountries();
+      },
+      function(response){
+        console.log(response);
+      }
+    );
+
+    $scope.johnTest = function (book) {
+      $scope.selectedBook = book;
+    };
+
+    $scope.highlightCountries = function () {// Colors in countries the user has read from
+      for(var i = 0; i < map.dataProvider.areas.length; i++) {
+        for(var j = 0; j < $scope.userObj.booksRead.length; j++) {
+          if(map.dataProvider.areas[i].id === $scope.userObj.booksRead[j].country) {
+            map.dataProvider.areas[i].showAsSelected = true;
+            map.returnInitialColor(map.dataProvider.areas[i]);
+          };
+        };
+      };
+    };
+
+    $scope.chooseCountry = function(){
+      for (var i = 0; i < map.dataProvider.areas.length; i++){
+        if(document.getElementById("country-choice-menu").value === map.dataProvider.areas[i].title){
+        
+
+          $scope.userObj.booksRead.push(
+            {
+              title: $scope.selectedBook.title,
+              country: map.dataProvider.areas[i].id,
+              pages: $scope.selectedBook.pageCount
+            }
+          );
+
+          $http({
+            method: 'POST',
+            url: 'http://localhost:3000/books/',
+            headers: {
+              "Content-Type": "application/json",
+              'Authorization': 'Bearer ' + $cookies.get('token')
+            },
+            data: {books_read: $scope.userObj.booksRead}
+          })
+          .then(
+             function(response){
+               console.log(response);
+             },
+             function(response){
+               console.log(response);
+             }
+           );
+           map.dataProvider.areas[i].showAsSelected = true;
+           map.returnInitialColor(map.dataProvider.areas[i]);
+        };
+      };
+    };
 }]);

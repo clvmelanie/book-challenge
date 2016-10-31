@@ -22,10 +22,10 @@
 
 <div class="rtg-signup-section">
   <div>Start your adventure</div>
-  <form class="rtg-signup-form">
-    <input type="email" id="mail" name="user_mail" placeholder="Email" /><br>
-    <input type="password" id="password" name="password" placeholder="Password" /><br>
-    <input type="password" id="confirm_password" name="password" placeholder="Confirm Password" /><br>
+  <form class="rtg-signup-form" ng-submit="signUp()">
+    <input type="email" id="mail" name="user_mail" placeholder="Email" ng-model="email"/><br>
+    <input type="password" id="password" name="password" placeholder="Password"  ng-model="password"/><br>
+    <input type="password" id="confirm_password" name="password" placeholder="Confirm Password"  ng-model="confirmPassword"/><br>
     <input type="submit" id="sign_up" value="Sign Up">
   </form>
 </div>
