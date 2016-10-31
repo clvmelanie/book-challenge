@@ -14,7 +14,7 @@
   </form>
 
   <div id="rtg-results-wrapper" class="sample-show-hide" ng-show="slideDown">
-    <div id="rtg-search-results" ng-repeat="book in bookList" ng-click="johnTest(book)">
+    <div id="rtg-search-results" ng-repeat="book in bookList" ng-click="chooseBook(book)">
       <img ng-src="{{book.thumbnailImage}}" ng-click="toggleSelectedBook()"></img><br>
       {{book.title}}<br>
       by<br>

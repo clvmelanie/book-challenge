@@ -62,7 +62,7 @@ angular.module('BookChallenge')
         "autoZoom": false,
         "color": "#b3b3b3",
         "outlineThickness": "2",
-        "rollOverColor": "#5FBA73",
+        "rollOverColor": "#b3b3b3",
         "selectable": false,
         "balloonText": "[[title]]",
         "selectedColor": "#5FBA73"
@@ -100,7 +100,7 @@ angular.module('BookChallenge')
       }
     );
 
-    $scope.johnTest = function (book) {
+    $scope.chooseBook = function (book) {
       $scope.selectedBook = book;
     };
 
@@ -118,7 +118,7 @@ angular.module('BookChallenge')
     $scope.chooseCountry = function(){
       for (var i = 0; i < map.dataProvider.areas.length; i++){
         if(document.getElementById("country-choice-menu").value === map.dataProvider.areas[i].title){
-        
+
 
           $scope.userObj.booksRead.push(
             {
