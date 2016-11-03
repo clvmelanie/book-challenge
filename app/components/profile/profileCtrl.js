@@ -6,6 +6,8 @@ angular.module('BookChallenge')
   $scope.selectedBook = false;
   $scope.slideDown = false;
 
+  // When search submit button is clicked, gets requested book data
+  // and on success slides the search area down to list results
   $scope.submit = function() {
     var searchTerm = "";
     searchTerm = document.getElementById("book-search-box").value;
@@ -24,7 +26,7 @@ angular.module('BookChallenge')
       }
     }).then(function (response) {
       if (!!response && !!response.data && !!response.data.items) {
-        $scope.slideDown = !$scope.slideDown;
+        $scope.slideDown = true;
         $timeout(function () {
           $scope.bookList = [];
           for (var i = 0; i < response.data.items.length; i++) {
@@ -44,6 +46,12 @@ angular.module('BookChallenge')
       console.log('Got an error!', response);
     });
 
+    };
+
+    // Slides search results up when X button is clicked
+    $scope.closeSearch = function(){
+      $scope.slideDown = !$scope.slideDown;
+      document.getElementById("book-search-box").value = "";
     };
 
     $scope.toggleSelectedBook = function () {
@@ -74,6 +82,9 @@ angular.module('BookChallenge')
       }
     });
 
+    // Restricts area of info balloon on hover so it isn't cut off
+    map.balloon.setBounds(75,50,1200,1000);
+
 
     $scope.userObj = {
       booksRead: [],
@@ -94,8 +105,6 @@ angular.module('BookChallenge')
       .then(
         function(response){
           $scope.userObj.booksRead = response.data.books_read;
-          console.log($scope.userObj)
-          console.log(map.dataProvider.areas);
           $scope.highlightCountries();
         },
         function(response){
@@ -143,15 +152,12 @@ angular.module('BookChallenge')
           })
           .then(
              function(response){
-               console.log(response);
+               $scope.highlightCountries();
              },
              function(response){
                console.log(response);
              }
            );
-
-           map.dataProvider.areas[i].showAsSelected = true;
-           map.returnInitialColor(map.dataProvider.areas[i]);
         };
       };
     };

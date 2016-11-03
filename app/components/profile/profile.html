@@ -8,10 +8,12 @@
 <div>
 
 <div id="search-book-titles">
-  <form ng-submit="submit()">
+  <form autocomplete="off" ng-submit="submit()">
     <input type="search" placeholder="Search Book Titles" id="book-search-box"></input>
-    <button type="submit" id="book-submit-button">Submit</button>
+    <button type="submit" id="book-submit-button">Search</button>
   </form>
+
+  <button id="search-close-button" ng-show="slideDown" ng-click="closeSearch()">&#10005;</button>
 
   <div id="rtg-results-wrapper" class="sample-show-hide" ng-show="slideDown">
     <div id="rtg-search-results" class="book-info" ng-repeat="book in bookList" ng-click="chooseBook(book)">
@@ -29,7 +31,7 @@
 
 <form ng-show="selectedBook" ng-submit="chooseCountry()">
   <select id="country-choice-menu">
-    <option ng-repeat="country in mapCountries" value="{{country.title}}">{{country.title}}</option>
+    <option ng-repeat="country in mapCountries | orderBy : '-title': 'reverse'" value="{{country.title}}">{{country.title}}</option>
   </select>
   <button type="submit" id="country-submit-button">Submit</button>
 </form>

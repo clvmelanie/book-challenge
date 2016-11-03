@@ -219,8 +219,39 @@ footer{
 
 #search-book-titles form{
   min-height: 100px;
-  padding-top: 35px;
+  padding-top: 25px;
 }
+
+#book-search-box{
+  border: 3px solid #FE621D;
+  border-radius: 7px;
+  height: 50px;
+  padding: 10px;
+  width: 400px;
+}
+
+#book-submit-button {
+  border-radius: 7px;
+  border-style: outset;
+  font-weight: bold;
+  font-size: 16px;
+  height: 40px;
+  width: 65px;
+}
+
+#search-close-button {
+  border-radius: 25px;
+  border-style: none;
+  float: right;
+  margin-right: 425px;
+  margin-top: -64px;
+}
+
+#search-close-button.ng-hide {
+  transition: all linear 2.0s;
+  opacity: 0;
+}
+
 
 #chartdiv {
   margin-top: 140px;
