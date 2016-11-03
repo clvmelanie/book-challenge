@@ -1,5 +1,12 @@
 .bookchallenge-body-style{
-  background-color: #B0E1E2;
+  background: #00FFE7; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(#00FFE7, #01BAEF); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#00FFE7, #01BAEF); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#00FFE7, #01BAEF); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#00FFE7, #01BAEF); /* Standard syntax */
+  background-attachment: fixed;
+
+
 }
 
 div {
@@ -112,7 +119,6 @@ footer{
   font-size: 75px;
   font-weight: bold;
   margin-top: -15px;
-  margin-right: -300px;
 }
 
 
@@ -152,7 +158,7 @@ footer{
 #rtg-results-wrapper{
   margin: auto;
   padding: 10px;
-  width: 400px;
+  width: 800px;
 }
 
 .sample-show-hide {
@@ -160,15 +166,35 @@ footer{
   overflow-y: hidden;
   transition: max-height 2.0s ease-in-out;
 }
+
 .sample-show-hide.ng-hide {
   max-height: 0;
 }
 
 #rtg-search-results{
+  background-color: #E2F4F4;
+  border-radius: 7px;
+  height: 215px;
   margin-bottom: 50px;
+  padding: 10px;
   text-align: justify;
 }
 
+#rtg-search-results:hover {
+
+}
+
+.book-attributes {
+  float: left;
+  font-size: 22px;
+  margin-left: 25px;
+  text-align: left;
+  width: 75%;
+}
+
+#book-cover-img {
+  float:left;
+}
 
 #rtg-svg-map{
   height: 700px;
@@ -185,9 +211,9 @@ footer{
 }
 
 #search-book-titles{
-  background-color: #E2F4F4;
-  border-bottom: 3px solid #E2F4F4;
-  border-top: 3px solid #E2F4F4;
+  background-color: #F8F8EF;
+  border-bottom: 3px solid #F8F8EF;
+  border-top: 3px solid #F8F8EF;
   margin-top: 30px;
 }
 
@@ -200,4 +226,10 @@ footer{
   margin-top: 140px;
   width: 100%;
   height: 500px;
+}
+
+@media (min-width: 1100px) {
+  #rtg-site-header {
+    margin-right: -300px;
+  }
 }

@@ -14,13 +14,14 @@
   </form>
 
   <div id="rtg-results-wrapper" class="sample-show-hide" ng-show="slideDown">
-    <div id="rtg-search-results" ng-repeat="book in bookList" ng-click="chooseBook(book)">
-      <img ng-src="{{book.thumbnailImage}}" ng-click="toggleSelectedBook()"></img><br>
-      {{book.title}}<br>
-      by<br>
-      {{book.author}}<br>
-      {{book.pageCount}} pages<br>
-      {{book.description}}
+    <div id="rtg-search-results" class="book-info" ng-repeat="book in bookList" ng-click="chooseBook(book)">
+      <img id="book-cover-img"  ng-src="{{book.thumbnailImage}}" ng-click="toggleSelectedBook()"></img>
+      <div class="book-attributes">
+        {{book.title}}<br><br>
+        by {{book.author}}<br>
+        {{book.pageCount}} pages<br>
+      </div>
+      <!-- Description: {{book.description}} -->
     </div>
   </div>
 </div>
