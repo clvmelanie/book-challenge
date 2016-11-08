@@ -37,7 +37,8 @@ angular.module('BookChallenge')
               description: volumeInfo.description,
               pageCount: volumeInfo.pageCount,
               title: volumeInfo.title,
-              thumbnailImage: volumeInfo.imageLinks.thumbnail
+              thumbnailImage: volumeInfo.imageLinks.thumbnail,
+              addClicked: false
             });
           }
         }, 50);
@@ -54,8 +55,9 @@ angular.module('BookChallenge')
       document.getElementById("book-search-box").value = "";
     };
 
-    $scope.toggleSelectedBook = function () {
-      $scope.selectedBook = !$scope.selectedBook;
+    $scope.toggleSelectedBook = function (book) {
+      book.addClicked = !book.addClicked;
+
     };
 
     var map = AmCharts.makeChart("chartdiv", {
@@ -64,7 +66,8 @@ angular.module('BookChallenge')
       "projection": "miller",
       "dataProvider": {
         "map": "worldLow",
-        "getAreasFromMap": true
+        "getAreasFromMap": true,
+        // "customData": "[[title]]"
       },
       "areasSettings": {
         "alpha": 1,
@@ -73,7 +76,7 @@ angular.module('BookChallenge')
         "outlineThickness": "2",
         "rollOverColor": "#b3b3b3",
         "selectable": false,
-        "balloonText": "[[customData]]",
+        "balloonText": "[[title]][[customData]]",
         "selectedColor": "#FE621D"
       },
       "export": {
@@ -122,7 +125,7 @@ angular.module('BookChallenge')
         for(var j = 0; j < $scope.userObj.booksRead.length; j++) {
           if(map.dataProvider.areas[i].id === $scope.userObj.booksRead[j].country) {
             map.dataProvider.areas[i].showAsSelected = true;
-            map.dataProvider.areas[i].customData = '<img src="' + $scope.userObj.booksRead[j].cover + '"></img>';
+            map.dataProvider.areas[i].customData = '<br><img src="' + $scope.userObj.booksRead[j].cover + '"></img>';
             map.returnInitialColor(map.dataProvider.areas[i]);
           };
         };

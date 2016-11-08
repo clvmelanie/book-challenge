@@ -1,16 +1,20 @@
-.bookchallenge-body-style{
+$main-font: 'Raleway', sans-serif;
+
+%button {
+  border-radius: 7px;
+}
+
+.bookchallenge-body-style {
   background: #00FFE7; /* For browsers that do not support gradients */
   background: -webkit-linear-gradient(#00FFE7, #01BAEF); /* For Safari 5.1 to 6.0 */
   background: -o-linear-gradient(#00FFE7, #01BAEF); /* For Opera 11.1 to 12.0 */
   background: -moz-linear-gradient(#00FFE7, #01BAEF); /* For Firefox 3.6 to 15 */
   background: linear-gradient(#00FFE7, #01BAEF); /* Standard syntax */
   background-attachment: fixed;
-
-
 }
 
 div {
-  font-family: 'Roboto Slab', serif;
+  font-family: $main-font;
   text-align: center;
 }
 
@@ -34,7 +38,7 @@ footer{
 }
 
 .rtg-intro-statement{
-  font-family: 'Roboto Slab', serif;
+  font-family: $main-font;
   font-size: 28px;
   margin-top: 170px;
   text-align: center;
@@ -45,7 +49,7 @@ footer{
 }
 
 .rtg-login-form input, .rtg-signup-form input {
-  border-radius: 7%;
+  border-radius: 7px;
   height: 50px;
   margin-top: 15px;
   padding: 25px;
@@ -59,7 +63,7 @@ footer{
 }
 
 .rtg-navbar-menu{
-  background-color: white;
+  background-color: #262626;
   height: 90px;
   width: 100%;
   top: 0;
@@ -73,61 +77,60 @@ footer{
   margin-right: 100px;
 }
 
-#log-in-top{
-  background-color: #33ff77;
-  border: 2px solid #33ff77;
-  border-radius: 16px;
-  box-shadow: -1px 2px 4px 0px rgba(0,0,0,0.16),inset 0px -2px 7px 0px rgba(0,0,0,0.1),inset 0px 2px 0px 0px rgba(255,255,255,0.3);
+#book-search-box{
+  border: 3px solid #FE621D;
+  border-radius: 7px;
+  height: 50px;
+  padding: 10px;
+  width: 400px;
+}
+
+
+#log-in-top,#sign-up-top {
   color: white;
   font-size: 18px;
+  height: 40px;
+  padding: 5px;
   margin-right: 15px;
-  padding: 9px;
 }
 
-#sign-up-top{
-  background-color: #00cc44;
-  border: 2px solid #00cc44;
-  border-radius: 16px;
-  box-shadow: -1px 2px 4px 0px rgba(0,0,0,0.16),inset 0px -2px 7px 0px rgba(0,0,0,0.1),inset 0px 2px 0px 0px rgba(255,255,255,0.3);
-  color: white;
-  font-size: 18px;
-  margin-right: 15px;
-  padding: 9px;
+#log-in-top:hover,#sign-up-top:hover {
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+  text-decoration: none;
 }
 
-#log-in-top:hover,#sign-up-top:hover{
-  box-shadow: 2px 2px 4px 0px rgba(0,0,0,0),inset 0px 5px 7px 0px rgba(0,0,0,0.1),inset 0px 2px 0px 0px rgba(255,255,255,0.3);
-  color:white;
-  text-decoration:none;
-}
-
-.rtg-profile-picture{
+.rtg-profile-picture {
   border-radius: 16px;
 }
 
-.rtg-login-section, .rtg-signup-section{
+.rtg-login-section, .rtg-signup-section {
   margin-top: 100px;
 }
 
-.rtg-login-section div, .rtg-signup-section div{
+.rtg-login-section div, .rtg-signup-section div {
   font-size: 30px;
 }
 
 #rtg-site-header {
-  display:inline-block;
-  font-family: 'mailart_rubberstampregular';
+  color: #00FFE7; /* For browsers that do not support gradients */
+  color: -webkit-linear-gradient(#00FFE7, #01BAEF); /* For Safari 5.1 to 6.0 */
+  color: -o-linear-gradient(#00FFE7, #01BAEF); /* For Opera 11.1 to 12.0 */
+  color: -moz-linear-gradient(#00FFE7, #01BAEF); /* For Firefox 3.6 to 15 */
+  color: linear-gradient(#00FFE7, #01BAEF); /* Standard syntax */
+  display: inline-block;
+  font-family: 'Raleway Dots', cursive;
   font-size: 75px;
-  font-weight: bold;
-  margin-top: -15px;
+  margin-top: -5px;
 }
 
 
 #log_in,#sign_up {
   background-color: #00cc44;
-  border-radius: 16px;
+  border-radius: 7px;
   box-shadow: -1px 2px 2px 0px rgba(0,0,0,0.16),inset 0px -2px 7px 0px rgba(0,0,0,0.1),inset 0px 2px 0px 0px rgba(255,255,255,0.3);
   color: white;
-  font-family: 'Roboto Slab', serif;
+  font-family: $main-font;
   font-size: 22px;
   padding: 0px;
 }
@@ -137,8 +140,9 @@ footer{
 }
 
 
-#rtg-dropdown-menu{
+#rtg-dropdown-menu {
   background-color: white;
+  border-radius: 7px;
   display: none;
   height: auto;
   position: absolute;
@@ -147,15 +151,15 @@ footer{
   width: 150px;
 }
 
-#rtg-dropdown-menu a{
+#rtg-dropdown-menu a {
   color: black;
-  font-family: 'Roboto Slab', serif;
+  font-family: $main-font;
   font-size: 18px;
   font-weight: bold;
 }
 
 
-#rtg-results-wrapper{
+#rtg-results-wrapper {
   margin: auto;
   padding: 10px;
   width: 800px;
@@ -172,7 +176,7 @@ footer{
 }
 
 #rtg-search-results{
-  background-color: #E2F4F4;
+  background-color: #e8efee;
   border-radius: 7px;
   height: 215px;
   margin-bottom: 50px;
@@ -196,47 +200,36 @@ footer{
   float:left;
 }
 
-#rtg-svg-map{
+#rtg-svg-map {
   height: 700px;
   display: block;
   margin: auto;
   width: 1000px;
 }
 
-#rtg-tooltip{
-  background-color: yellow;
-  display: none;
-  height: 100px;
-  width:100px;
-}
 
-#search-book-titles{
-  background-color: #F8F8EF;
-  border-bottom: 3px solid #F8F8EF;
-  border-top: 3px solid #F8F8EF;
+#search-book-titles {
+  background-color: lighten(#262626, 5%);
+  border-bottom: 3px solid lighten(#262626, 5%);
+  border-top: 3px solid lighten(#262626, 5%);
   margin-top: 30px;
 }
 
-#search-book-titles form{
+#search-book-titles form {
   min-height: 100px;
   padding-top: 25px;
 }
 
-#book-search-box{
-  border: 3px solid #FE621D;
-  border-radius: 7px;
-  height: 50px;
-  padding: 10px;
-  width: 400px;
-}
 
 #book-submit-button {
-  border-radius: 7px;
-  border-style: outset;
-  font-weight: bold;
-  font-size: 16px;
-  height: 40px;
-  width: 65px;
+  @extend %button;
+  background-color: gray;
+  color: #fff;
+  height: 30px;
+  width: 85px;
+    &:hover {
+
+    }
 }
 
 #search-close-button {
@@ -248,10 +241,30 @@ footer{
 }
 
 #search-close-button.ng-hide {
-  transition: all linear 2.0s;
+  transition: all linear 1.0s;
   opacity: 0;
 }
 
+#add-book-button {
+  background-color: #00cc44;
+  border: 2px solid #00cc44;
+  border-radius: 7px;
+  box-shadow: -1px 2px 4px 0px rgba(0,0,0,0.16),inset 0px -2px 7px 0px rgba(0,0,0,0.1),inset 0px 2px 0px 0px rgba(255,255,255,0.3);
+  color: white;
+  float: right;
+  height: 50px;
+  margin-right: 100px;
+  width: 175px;
+}
+
+#add-book-button:hover {
+  box-shadow: 2px 2px 4px 0px rgba(0,0,0,0),inset 0px 5px 7px 0px rgba(0,0,0,0.1),inset 0px 2px 0px 0px rgba(255,255,255,0.3);
+}
+
+#add-book-button:active {
+  background-color: #33ff77;
+  border: 2px solid #33ff77;
+}
 
 #chartdiv {
   margin-top: 140px;

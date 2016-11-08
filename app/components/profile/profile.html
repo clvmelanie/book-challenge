@@ -5,11 +5,11 @@
   <div>Countries Read: {{userObj.countriesRead.length}}<div>
   <div>Pages Read: {{userObj.pagesRead}}<div>
   <div>Percent of the World Read: {{(userObj.countriesRead.length/176) * 100 | number : 1}} %<div>
-<div>
+</div>
 
 <div id="search-book-titles">
   <form autocomplete="off" ng-submit="submit()">
-    <input type="search" placeholder="Search Book Titles" id="book-search-box"></input>
+    <input type="search" placeholder="Search Book Titles" id="book-search-box" required></input>
     <button type="submit" id="book-submit-button">Search</button>
   </form>
 
@@ -17,21 +17,20 @@
 
   <div id="rtg-results-wrapper" class="sample-show-hide" ng-show="slideDown">
     <div id="rtg-search-results" class="book-info" ng-repeat="book in bookList" ng-click="chooseBook(book)">
-      <img id="book-cover-img"  ng-src="{{book.thumbnailImage}}" ng-click="toggleSelectedBook()"></img>
+      <img id="book-cover-img"  ng-src="{{book.thumbnailImage}}"></img>
       <div class="book-attributes">
-        {{book.title}}<br><br>
+        {{book.title}}<br>
         by {{book.author}}<br>
         {{book.pageCount}} pages<br>
       </div>
-      <!-- Description: {{book.description}} -->
+      <button id="add-book-button" ng-click="toggleSelectedBook(book)">+ Add Book</button>
+      <form ng-show="book.addClicked" ng-submit="chooseCountry()">
+        <select id="country-choice-menu">
+          <option value="" disabled selected>Select the proper country</option>
+          <option ng-repeat="country in mapCountries | orderBy : '-title': 'reverse'" value="{{country.title}}">{{country.title}}</option>
+        </select>
+        <button type="submit" id="country-submit-button">Submit</button>
+      </form>
     </div>
   </div>
-</div>
-
-
-<form ng-show="selectedBook" ng-submit="chooseCountry()">
-  <select id="country-choice-menu">
-    <option ng-repeat="country in mapCountries | orderBy : '-title': 'reverse'" value="{{country.title}}">{{country.title}}</option>
-  </select>
-  <button type="submit" id="country-submit-button">Submit</button>
-</form>
+  </div>
