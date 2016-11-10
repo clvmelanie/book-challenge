@@ -10,7 +10,7 @@
 <div id="search-book-titles">
   <form autocomplete="off" ng-submit="submit()">
     <input type="search" placeholder="Search Book Titles" id="book-search-box" required></input>
-    <button type="submit" id="book-submit-button">Search</button>
+    <button type="submit" id="book-submit-button"><img src="images/1478834170_Find01.png"></img></button>
   </form>
 
   <button id="search-close-button" ng-show="slideDown" ng-click="closeSearch()">&#10005;</button>
@@ -19,18 +19,18 @@
     <div id="rtg-search-results" class="book-info" ng-repeat="book in bookList" ng-click="chooseBook(book)">
       <img id="book-cover-img"  ng-src="{{book.thumbnailImage}}"></img>
       <div class="book-attributes">
-        {{book.title}}<br>
+        <b>{{book.title}}</b><br>
         by {{book.author}}<br>
         {{book.pageCount}} pages<br>
       </div>
-      <button id="add-book-button" ng-click="toggleSelectedBook(book)">+ Add Book</button>
-      <form ng-show="book.addClicked" ng-submit="chooseCountry()">
-        <select id="country-choice-menu">
-          <option value="" disabled selected>Select the proper country</option>
-          <option ng-repeat="country in mapCountries | orderBy : '-title': 'reverse'" value="{{country.title}}">{{country.title}}</option>
-        </select>
-        <button type="submit" id="country-submit-button">Submit</button>
-      </form>
+        <button id="add-book-button" ng-click="toggleSelectedBook(book)">{{ book.addClicked === false ? '+ Add Book' : 'Cancel' }}</button>
+        <form ng-show="book.addClicked" ng-submit="chooseCountry()" class="country-choice-form">
+          <select id="country-choice-menu">
+            <option value="" disabled selected>Select book's country</option>
+            <option ng-repeat="country in mapCountries | orderBy : '-title': 'reverse'" value="{{country.title}}">{{country.title}}</option>
+          </select>
+          <button type="submit" id="country-submit-button">Submit</button>
+        </form>
     </div>
   </div>
   </div>

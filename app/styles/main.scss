@@ -1,9 +1,5 @@
 $main-font: 'Raleway', sans-serif;
 
-%button {
-  border-radius: 7px;
-}
-
 .bookchallenge-body-style {
   background: #00FFE7; /* For browsers that do not support gradients */
   background: -webkit-linear-gradient(#00FFE7, #01BAEF); /* For Safari 5.1 to 6.0 */
@@ -76,15 +72,6 @@ footer{
   margin: 22px;
   margin-right: 100px;
 }
-
-#book-search-box{
-  border: 3px solid #FE621D;
-  border-radius: 7px;
-  height: 50px;
-  padding: 10px;
-  width: 400px;
-}
-
 
 #log-in-top,#sign-up-top {
   color: white;
@@ -180,8 +167,8 @@ footer{
   border-radius: 7px;
   height: 215px;
   margin-bottom: 50px;
+  overflow: hidden;
   padding: 10px;
-  text-align: justify;
 }
 
 #rtg-search-results:hover {
@@ -192,12 +179,15 @@ footer{
   float: left;
   font-size: 22px;
   margin-left: 25px;
+  max-height: 195px;
+  overflow: hidden;
   text-align: left;
-  width: 75%;
+  width: 55%;
 }
 
 #book-cover-img {
   float:left;
+  max-height: 200px;
 }
 
 #rtg-svg-map {
@@ -220,15 +210,30 @@ footer{
   padding-top: 25px;
 }
 
+#book-search-box{
+  border: 3px solid #FE621D;
+  border-radius: 7px;
+  height: 50px;
+  padding: 10px;
+  width: 400px;
+}
 
 #book-submit-button {
-  @extend %button;
-  background-color: gray;
-  color: #fff;
-  height: 30px;
-  width: 85px;
+  background: #FE621D;
+  border: 4px solid #FE621D;
+  border-radius: 7px;
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+  height: 48px;
+  margin-left: -75px;
+  width: 70px;
     &:hover {
-
+      border: 3px solid #f99a1d;
+      background: #FE621D; /* For browsers that do not support gradients */
+      background: -webkit-radial-gradient(#FE621D, #f99a1d); /* For Safari 5.1 to 6.0 */
+      background: -o-radial-gradient(#FE621D, #f99a1d); /* For Opera 11.1 to 12.0 */
+      background: -moz-radial-gradient(#FE621D, #f99a1d); /* For Firefox 3.6 to 15 */
+      background: radial-gradient(#FE621D, #f99a1d); /* Standard syntax */
     }
 }
 
@@ -252,9 +257,9 @@ footer{
   box-shadow: -1px 2px 4px 0px rgba(0,0,0,0.16),inset 0px -2px 7px 0px rgba(0,0,0,0.1),inset 0px 2px 0px 0px rgba(255,255,255,0.3);
   color: white;
   float: right;
+  font-size: 18px;
   height: 50px;
-  margin-right: 100px;
-  width: 175px;
+  width: 180px;
 }
 
 #add-book-button:hover {
@@ -264,6 +269,17 @@ footer{
 #add-book-button:active {
   background-color: #33ff77;
   border: 2px solid #33ff77;
+}
+
+#country-choice-menu {
+  float: right;
+  margin-left: 500px;
+  margin-top: -110px;
+  width: 180px;
+}
+
+#country-submit-button {
+  margin-top: 60px;
 }
 
 #chartdiv {

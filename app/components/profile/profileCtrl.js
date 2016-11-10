@@ -38,7 +38,7 @@ angular.module('BookChallenge')
               pageCount: volumeInfo.pageCount,
               title: volumeInfo.title,
               thumbnailImage: volumeInfo.imageLinks.thumbnail,
-              addClicked: false
+              addClicked: false,
             });
           }
         }, 50);
@@ -57,7 +57,6 @@ angular.module('BookChallenge')
 
     $scope.toggleSelectedBook = function (book) {
       book.addClicked = !book.addClicked;
-
     };
 
     var map = AmCharts.makeChart("chartdiv", {
