@@ -38,7 +38,7 @@ angular.module('BookChallenge')
               pageCount: volumeInfo.pageCount,
               title: volumeInfo.title,
               thumbnailImage: volumeInfo.imageLinks.thumbnail,
-              addClicked: false,
+              addClicked: false
             });
           }
         }, 50);
@@ -55,7 +55,7 @@ angular.module('BookChallenge')
       document.getElementById("book-search-box").value = "";
     };
 
-    $scope.toggleSelectedBook = function (book) {
+    $scope.toggleSelectedBook = function(book) {
       book.addClicked = !book.addClicked;
     };
 
