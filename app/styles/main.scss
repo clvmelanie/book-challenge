@@ -102,17 +102,24 @@ footer{
 }
 
 #log-in-top,#sign-up-top {
-  color: white;
-  font-size: 18px;
-  height: 40px;
-  padding: 5px;
-  margin-right: 15px;
+  display: inline-block;
+  min-width: 91px;
+
+  a {
+    font-size: 18px;
+    height: 40px;
+    padding: 5px;
+    margin-right: 15px;
+    color: white;
+  }
 }
 
-#log-in-top:hover,#sign-up-top:hover {
-  border-top: 2px solid white;
-  border-bottom: 2px solid white;
-  text-decoration: none;
+#log-in-top:hover,#sign-up-top {
+  a:hover {
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+    text-decoration: none;
+  }
 }
 
 .rtg-profile-picture {
@@ -292,6 +299,18 @@ footer{
 #add-book-button:active {
   background-color: #33ff77;
   border: 2px solid #33ff77;
+}
+
+#cancel-button {
+  background-color: red;
+  border: 2px solid red;
+  border-radius: 7px;
+  box-shadow: -1px 2px 4px 0px rgba(0,0,0,0.16),inset 0px -2px 7px 0px rgba(0,0,0,0.1),inset 0px 2px 0px 0px rgba(255,255,255,0.3);
+  color: white;
+  float: right;
+  font-size: 10px;
+  height: 25px;
+  width: 75px;
 }
 
 #country-choice-menu {

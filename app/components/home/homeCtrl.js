@@ -1,5 +1,5 @@
 angular.module('BookChallenge')
-  .controller('HomeController', ['$scope', '$http', '$cookies' , '$window', function($scope, $http, $cookies, $window){
+  .controller('HomeController', ['$scope', '$rootScope', '$http', '$cookies' , '$window', function($scope, $rootScope, $http, $cookies, $window){
     $scope.email = '';
     $scope.password = '';
     $scope.confirmPassword = '';
@@ -34,6 +34,7 @@ angular.module('BookChallenge')
         function(response){
           $cookies.put('token', response.data.auth_token);
           $window.location.href = "/#/profile";
+          $rootScope.$broadcast('loggedIn');
         },
         function(response){
           console.log(response);
