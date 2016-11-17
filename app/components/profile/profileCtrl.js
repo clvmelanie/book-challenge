@@ -5,13 +5,11 @@ angular.module('BookChallenge')
   $scope.bookList = [];
   $scope.selectedBook = false;
   $scope.slideDown = false;
+  $scope.searchBookTitles = '';
 
   // When search submit button is clicked, gets requested book data
   // and on success slides the search area down to list results
   $scope.submit = function() {
-    var searchTerm = "";
-    searchTerm = document.getElementById("book-search-box").value;
-
     $http({
       method: 'GET',
       url: 'https://www.googleapis.com/books/v1/volumes',
@@ -21,7 +19,7 @@ angular.module('BookChallenge')
       },
       params: {
         q: {
-          title: searchTerm
+          title: $scope.searchBookTitles
         }
       }
     }).then(function (response) {
@@ -51,8 +49,7 @@ angular.module('BookChallenge')
 
     // Slides search results up when X button is clicked
     $scope.closeSearch = function(){
-      $scope.slideDown = !$scope.slideDown;
-      document.getElementById("book-search-box").value = "";
+      $scope.searchBookTitles = '';
     };
 
     $scope.toggleSelectedBook = function(book) {

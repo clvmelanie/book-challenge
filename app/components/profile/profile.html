@@ -9,11 +9,12 @@
 
 <div id="search-book-titles">
   <form autocomplete="off" ng-submit="submit()">
-    <input type="search" placeholder="Search Book Titles" id="book-search-box" required></input>
+    <input type="search" placeholder="Search Book Titles" id="book-search-box" ng-model="searchBookTitles" required></input>
     <button type="submit" id="book-submit-button"><img src="images/1478834170_Find01.png"></img></button>
+    <span id="searchclear" class="glyphicon glyphicon-remove-circle search-clear-icon" ng-class="{'search-clear-icon-display' : searchBookTitles}" ng-click="closeSearch()"></span>
   </form>
 
-  <button id="search-close-button" ng-show="slideDown" ng-click="closeSearch()">&#10005;</button>
+  <!-- <button id="search-close-button" ng-show="slideDown" ng-click="closeSearch()">&#10005;</button> -->
 
   <div id="rtg-results-wrapper" class="sample-show-hide" ng-show="slideDown">
     <div id="rtg-search-results" class="book-info" ng-repeat="book in bookList" ng-click="chooseBook(book)">

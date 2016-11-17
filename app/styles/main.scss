@@ -1,5 +1,6 @@
 $main-font: 'Raleway', sans-serif;
 
+
 .bookchallenge-body-style {
   background: #00FFE7; /* For browsers that do not support gradients */
   background: -webkit-linear-gradient(#00FFE7, #01BAEF); /* For Safari 5.1 to 6.0 */
@@ -17,6 +18,33 @@ div {
 footer{
   height: 200px;
 }
+
+//************** Account *******************
+
+ .account-section {
+   background-color: #eff3f9;
+   border: 3px solid lighten(#262626, 5%);
+   border-radius: 7px;
+   margin: auto;
+   margin-top: 120px;
+   min-height: 550px;
+   width: 90%;
+ }
+
+ #img-edit {
+   float: right;
+   margin-right: 100px;
+   margin-top: 30px;
+ }
+
+
+//************** Home **********************
+
+
+//************** Navbar ********************
+
+
+//************** Profile *******************
 
 .rtg-intro-blurb {
   font-size: 16px;
@@ -61,6 +89,7 @@ footer{
 .rtg-navbar-menu {
   background-color: #262626;
   height: 150px;
+  opacity: .92;
   width: 100%;
   top: 0;
   position: fixed;
@@ -99,11 +128,7 @@ footer{
 }
 
 #rtg-site-header {
-  color: #00FFE7; /* For browsers that do not support gradients */
-  color: -webkit-linear-gradient(#00FFE7, #01BAEF); /* For Safari 5.1 to 6.0 */
-  color: -o-linear-gradient(#00FFE7, #01BAEF); /* For Opera 11.1 to 12.0 */
-  color: -moz-linear-gradient(#00FFE7, #01BAEF); /* For Firefox 3.6 to 15 */
-  color: linear-gradient(#00FFE7, #01BAEF); /* Standard syntax */
+  color: mix(#00FFE7,#01BAEF, 60%);
   display: block;
   font-family: 'Raleway Dots', cursive;
   font-size: 50px;
@@ -292,9 +317,21 @@ footer{
   height: 500px;
 }
 
+.search-clear-icon {
+  font-size: 18px;
+  right: 100px;
+  top: 4px !important;
+  opacity: 0;
+}
+
+.search-clear-icon-display {
+  font-size: 18px;
+  right: 100px;
+  top: 4px !important;
+  opacity: 1;
+}
 
 @media (min-width: 900px) {
-
   .rtg-intro-blurb{
     width:700px;
   }
@@ -315,11 +352,6 @@ footer{
   }
 
   #rtg-site-header {
-    color: #00FFE7; /* For browsers that do not support gradients */
-    color: -webkit-linear-gradient(#00FFE7, #01BAEF); /* For Safari 5.1 to 6.0 */
-    color: -o-linear-gradient(#00FFE7, #01BAEF); /* For Opera 11.1 to 12.0 */
-    color: -moz-linear-gradient(#00FFE7, #01BAEF); /* For Firefox 3.6 to 15 */
-    color: linear-gradient(#00FFE7, #01BAEF); /* Standard syntax */
     display: inline-block;
     font-family: 'Raleway Dots', cursive;
     font-size: 75px;
