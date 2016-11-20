@@ -24,7 +24,7 @@
         by {{book.author}}<br>
         {{book.pageCount}} pages<br>
       </div>
-        <button id="add-book-button" ng-click="toggleSelectedBook(book)">{{ book.addClicked === false ? '+ Add Book' : 'Cancel' }}</button>
+        <button id="add-book-button" ng-click="toggleSelectedBook(book)" ng-class="{'cancel-button' : book.addClicked}">{{ book.addClicked === false ? '+ Add Book' : 'Cancel' }}</button>
         <form ng-show="book.addClicked" ng-submit="chooseCountry(); toggleSelectedBook(book)" class="country-choice-form">
           <select id="country-choice-menu">
             <option value="" disabled selected>Select book's country</option>

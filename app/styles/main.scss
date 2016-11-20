@@ -301,16 +301,9 @@ footer{
   border: 2px solid #33ff77;
 }
 
-#cancel-button {
-  background-color: red;
-  border: 2px solid red;
-  border-radius: 7px;
-  box-shadow: -1px 2px 4px 0px rgba(0,0,0,0.16),inset 0px -2px 7px 0px rgba(0,0,0,0.1),inset 0px 2px 0px 0px rgba(255,255,255,0.3);
-  color: white;
-  float: right;
-  font-size: 10px;
-  height: 25px;
-  width: 75px;
+.cancel-button {
+  background-color: red !important;
+  border: 2px solid red !important;
 }
 
 #country-choice-menu {
@@ -374,7 +367,7 @@ footer{
     display: inline-block;
     font-family: 'Raleway Dots', cursive;
     font-size: 75px;
-    margin-top: -5px;
+    margin-top: -12px;
   }
 
   #rtg-results-wrapper {

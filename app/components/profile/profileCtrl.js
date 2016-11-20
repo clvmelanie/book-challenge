@@ -62,8 +62,7 @@ angular.module('BookChallenge')
       "projection": "miller",
       "dataProvider": {
         "map": "worldLow",
-        "getAreasFromMap": true,
-        // "customData": "[[title]]"
+        "getAreasFromMap": true
       },
       "areasSettings": {
         "alpha": 1,
@@ -83,6 +82,16 @@ angular.module('BookChallenge')
 
     // Restricts area of info balloon on hover so it isn't cut off
     map.balloon.setBounds(75,50,1200,1000);
+
+    // Disables map control buttons
+    map.zoomControl = {
+           zoomControlEnabled: false,
+           panControlEnabled: false,
+           homeButtonEnabled: false
+    };
+
+    map.dragMap = false;
+
 
 
     $scope.userObj = {
