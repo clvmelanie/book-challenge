@@ -1,5 +1,5 @@
 angular.module('BookChallenge')
-  .controller('HomeController', ['$scope', '$rootScope', '$http', '$cookies' , '$window', function($scope, $rootScope, $http, $cookies, $window){
+  .controller('HomeController', ['$scope', '$rootScope', '$http', '$cookies' , '$window', 'envService', function($scope, $rootScope, $http, $cookies, $window, envService){
     $scope.email = '';
     $scope.password = '';
     $scope.confirmPassword = '';
@@ -29,7 +29,7 @@ angular.module('BookChallenge')
     });
 
     $scope.signUp = function () {
-      $http.post('http://localhost:3000/register', {email: $scope.email, password: $scope.password})
+      $http.post(envService.read('apiUrl') + 'register', {email: $scope.email, password: $scope.password})
       .then(
         function(response){
           $cookies.put('token', response.data.auth_token);

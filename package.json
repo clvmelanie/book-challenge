@@ -40,8 +40,11 @@
   },
   "dependencies": {
     "angular-cookies": "^1.5.8",
+    "angular-environment": "^1.0.4",
     "bower": "^1.7.7",
     "express": "4.13.3"
   },
-  "cacheDirectories": ["node_modules"]
+  "cacheDirectories": [
+    "node_modules"
+  ]
 }

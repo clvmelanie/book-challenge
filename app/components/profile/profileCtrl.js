@@ -1,5 +1,5 @@
 angular.module('BookChallenge')
-.controller('ProfileController', ['$http', '$scope', '$window', '$timeout', '$cookies', function($http, $scope, $window, $timeout, $cookies){
+.controller('ProfileController', ['$http', '$scope', '$window', '$timeout', '$cookies', 'envService', function($http, $scope, $window, $timeout, $cookies, envService){
 
   $scope.mapCountries = AmCharts.maps.worldLow.svg.g.path;
   $scope.bookList = [];
@@ -103,7 +103,7 @@ angular.module('BookChallenge')
     $timeout(function () {
       $http({
         method: 'GET',
-        url: 'http://localhost:3000/books',
+        url: envService.read('apiUrl') + 'books',
         dataType: 'json',
         headers: {
             "Content-Type": "application/json",
@@ -151,7 +151,7 @@ angular.module('BookChallenge')
 
           $http({
             method: 'POST',
-            url: 'http://localhost:3000/books/',
+            url: envService.read('apiUrl') + 'books/',
             headers: {
               "Content-Type": "application/json",
               'Authorization': 'Bearer ' + $cookies.get('token')
