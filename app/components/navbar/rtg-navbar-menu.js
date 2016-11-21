@@ -6,7 +6,9 @@ angular.module('BookChallenge')
       restrict: 'E',
       templateUrl: 'components/navbar/rtg-navbar-menu.html',
       link: function (scope, element, attrs) {
-        console.log($location);
+        if ($location.host().includes('pagetrekker.com')) {
+          envService.set('production');
+        }
         scope.loggedIn = !!$cookies.get('token');
 
         scope.mouseOver = function () {
