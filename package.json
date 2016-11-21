@@ -40,7 +40,8 @@
   },
   "dependencies": {
     "angular-cookies": "^1.5.8",
-    "bower": "^1.7.7"
+    "bower": "^1.7.7",
+    "express": "4.13.3"
   },
   "cacheDirectories": ["node_modules"]
 }
