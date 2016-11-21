@@ -111,7 +111,6 @@ angular.module('BookChallenge')
       })
       .then(
         function(response) {
-          console.log(response);
           $scope.userObj.booksRead = response.data.books_read;
           $scope.highlightCountries();
         },
