@@ -92,8 +92,6 @@ angular.module('BookChallenge')
 
     map.dragMap = false;
 
-
-
     $scope.userObj = {
       booksRead: [],
       email: "",
