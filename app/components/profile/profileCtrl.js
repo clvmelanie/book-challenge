@@ -6,7 +6,6 @@ angular.module('BookChallenge')
   $scope.selectedBook = false;
   $scope.slideDown = false;
   $scope.searchBookTitles = '';
-  console.log(envService.get());
 
   // When search submit button is clicked, gets requested book data
   // and on success slides the search area down to list results

@@ -1,11 +1,12 @@
 angular.module('BookChallenge')
-  .directive('rtgNavbarMenu', ['$cookies', function ($cookies) {
+  .directive('rtgNavbarMenu', ['$cookies', '$location', 'envService', function ($cookies, $location, envService) {
     return {
       scope: {},
       replace: true,
       restrict: 'E',
       templateUrl: 'components/navbar/rtg-navbar-menu.html',
       link: function (scope, element, attrs) {
+        console.log($location);
         scope.loggedIn = !!$cookies.get('token');
 
         scope.mouseOver = function () {
