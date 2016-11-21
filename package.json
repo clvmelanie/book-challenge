@@ -23,7 +23,7 @@
   },
   "engines": {
     "node": "5.1.0",
-    "npm": "3.4.1"
+    "npm": "3.3.12"
   },
   "scripts": {
     "postinstall": "bower install",
