@@ -21,6 +21,10 @@
     "aws-lib": "^0.3.0",
     "requirejs": "^2.3.2"
   },
+  "engines": {
+    "node": "5.1.0",
+    "npm": "3.4.1"
+  },
   "scripts": {
     "postinstall": "bower install",
     "prestart": "npm install",
@@ -36,5 +40,6 @@
   },
   "dependencies": {
     "angular-cookies": "^1.5.8"
-  }
+  },
+  "cacheDirectories": ["node_modules"]
 }
