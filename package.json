@@ -21,6 +21,10 @@
     "aws-lib": "^0.3.0",
     "requirejs": "^2.3.2"
   },
+  "engines": {
+    "node": "5.1.0",
+    "npm": "3.3.12"
+  },
   "scripts": {
     "postinstall": "bower install",
     "prestart": "npm install",
@@ -35,6 +39,9 @@
     "update-index-async": "node -e \"var fs=require('fs'),indexFile='app/index-async.html',loaderFile='app/bower_components/angular-loader/angular-loader.min.js',loaderText=fs.readFileSync(loaderFile,'utf-8').split(/sourceMappingURL=angular-loader.min.js.map/).join('sourceMappingURL=bower_components/angular-loader/angular-loader.min.js.map'),indexText=fs.readFileSync(indexFile,'utf-8').split(/\\/\\/@@NG_LOADER_START@@[\\s\\S]*\\/\\/@@NG_LOADER_END@@/).join('//@@NG_LOADER_START@@\\n'+loaderText+'    //@@NG_LOADER_END@@');fs.writeFileSync(indexFile,indexText);\""
   },
   "dependencies": {
-    "angular-cookies": "^1.5.8"
-  }
+    "angular-cookies": "^1.5.8",
+    "bower": "^1.7.7",
+    "express": "4.13.3"
+  },
+  "cacheDirectories": ["node_modules"]
 }
