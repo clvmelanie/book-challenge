@@ -4,7 +4,7 @@ angular.module('BookChallenge', ['ngRoute', 'ngAnimate', 'ngCookies', 'environme
   envServiceProvider.config({
     domains: {
         development: ['localhost'],
-        production: ['pagetrekker.com']
+        production: ['pagetrekker.com', 'http://www.pagetrekker.com']
     },
     vars: {
       development: {
