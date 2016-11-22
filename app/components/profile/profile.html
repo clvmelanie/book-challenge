@@ -1,11 +1,19 @@
+<button id="views-button" ng-click="toggleList()">{{userObj.showList === false ? 'List View' : 'Map View'}}</Button>
 
-<div id="chartdiv"></div>
+<div id="chartdiv" ng-show="!userObj.showList"></div>
+
+<div class="my-book-list" ng-show="userObj.showList">
+  <div ng-repeat="tome in userObj.booksRead">
+   <div><img id="book-cover-small"  ng-src="{{tome.cover}}"></img>{{tome.title}}, {{tome.countryName}}</div>
+ </div>
+</div>
 
 <div id="user-stats-section">
   <div>Countries Read: {{userObj.countriesRead.length}}<div>
   <div>Pages Read: {{userObj.pagesRead}}<div>
   <div>Percent of the World Read: {{(userObj.countriesRead.length/176) * 100 | number : 1}} %<div>
 </div>
+
 
 <div id="search-book-titles">
   <form autocomplete="off" ng-submit="submit()">

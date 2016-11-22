@@ -97,7 +97,12 @@ angular.module('BookChallenge')
     $scope.userObj = {
       booksRead: [],
       email: "",
-      profilePic: ""
+      profilePic: "",
+      showList: false
+    };
+
+    $scope.toggleList = function() {
+      $scope.userObj.showList = !$scope.userObj.showList;
     };
 
     $timeout(function () {
@@ -144,6 +149,7 @@ angular.module('BookChallenge')
             {
               title: $scope.selectedBook.title,
               country: map.dataProvider.areas[i].id,
+              countryName: map.dataProvider.areas[i].title,
               pages: $scope.selectedBook.pageCount,
               cover: $scope.selectedBook.thumbnailImage
             }
