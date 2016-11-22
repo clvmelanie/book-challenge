@@ -30,14 +30,16 @@ angular.module('BookChallenge')
           for (var i = 0; i < response.data.items.length; i++) {
             var volumeInfo = response.data.items[i].volumeInfo;
             var author = !!volumeInfo.authors ? volumeInfo.authors[0] : '';
-            $scope.bookList.push({
-              author: author,
-              description: volumeInfo.description,
-              pageCount: volumeInfo.pageCount,
-              title: volumeInfo.title,
-              thumbnailImage: volumeInfo.imageLinks.thumbnail,
-              addClicked: false
-            });
+            if (!!volumeInfo.imageLinks && volumeInfo.imageLinks.thumbnail) {
+              $scope.bookList.push({
+                author: author,
+                description: volumeInfo.description,
+                pageCount: volumeInfo.pageCount,
+                title: volumeInfo.title,
+                thumbnailImage: volumeInfo.imageLinks.thumbnail,
+                addClicked: false
+              });
+            }
           }
         }, 50);
       }
@@ -104,7 +106,6 @@ angular.module('BookChallenge')
     };
 
     $timeout(function () {
-      console.log(envService.read('apiUrl'));
       $http({
         method: 'GET',
         url: envService.read('apiUrl') + 'books',
