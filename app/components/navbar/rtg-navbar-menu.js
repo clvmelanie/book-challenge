@@ -1,11 +1,14 @@
 angular.module('BookChallenge')
-  .directive('rtgNavbarMenu', ['$cookies', function ($cookies) {
+  .directive('rtgNavbarMenu', ['$cookies', '$location', 'envService', function ($cookies, $location, envService) {
     return {
       scope: {},
       replace: true,
       restrict: 'E',
       templateUrl: 'components/navbar/rtg-navbar-menu.html',
       link: function (scope, element, attrs) {
+        if ($location.host().includes('pagetrekker.com')) {
+          envService.set('production');
+        }
         scope.loggedIn = !!$cookies.get('token');
 
         scope.mouseOver = function () {
