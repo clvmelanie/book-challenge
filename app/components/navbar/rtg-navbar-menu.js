@@ -1,5 +1,5 @@
 angular.module('BookChallenge')
-  .directive('rtgNavbarMenu', ['$cookies', '$location', 'envService', function ($cookies, $location, envService) {
+  .directive('rtgNavbarMenu', ['$cookies', '$location', 'envService', '$anchorScroll', function ($cookies, $location, envService, $anchorScroll) {
     return {
       scope: {},
       replace: true,
@@ -31,6 +31,17 @@ angular.module('BookChallenge')
         scope.$on('loggedIn', function () {
           scope.loggedIn = true;
         });
+
+        scope.goToLogin = function () {
+          // $location.hash('login-here');
+          $anchorScroll();
+        };
+
+
+        scope.goToSignup = function () {
+          // $location.hash('signup-here')
+          $anchorScroll();
+        };
       }
     };
   }]);

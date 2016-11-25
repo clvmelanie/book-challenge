@@ -1,6 +1,3 @@
-
-
-
 <div class="rtg-intro-statement">Welcome to the ultimate reading adventure!</div>
 
 
@@ -13,11 +10,11 @@
 
 
 
-<div class="rtg-login-section">
+<div class="rtg-login-section" id="login-here">
   <div>Continue your journey</div>
   <form class="rtg-login-form">
     <input type="email" id="mail" name="user_mail" placeholder="Email" /><br>
-    <input type="password" id="password" name="password" placeholder="Password" /><br>
+    <input type="password" id="login_password" name="login_password" placeholder="Password" minlength="8" /><br>
     <input type="submit" id="log_in" value="Log In">
   </form>
 </div>
@@ -33,12 +30,16 @@
 <div id="status">
 </div>
 
-<div class="rtg-signup-section">
+<div class="rtg-signup-section" id="signup-here">
   <div>Start your adventure</div>
-  <form class="rtg-signup-form" ng-submit="signUp()">
-    <input type="email" id="mail" name="user_mail" placeholder="Email" ng-model="email"/><br>
-    <input type="password" id="password" name="password" placeholder="Password"  ng-model="password"/><br>
-    <input type="password" id="confirm_password" name="password" placeholder="Confirm Password"  ng-model="confirmPassword"/><br>
+  <form name="ptSignupForm" class="rtg-signup-form" ng-submit="ptSignupForm.$valid && signUp()" novalidate>
+    <input type="email" id="mail" name="user_mail" placeholder="Email" ng-model="email" required/><br>
+    <input type="password" id="signup_password" name="signup_password" placeholder="Password" ng-model="password" minlength="8" required/><br>
+    <input type="password" id="signup_confirm_password" name="signup_confirm_password" placeholder="Confirm Password" ng-model="confirmPassword" minlength="8" pw-check='signup_password' required/><br>
+    <!-- <div ng-hide="passwordsMatch">Passwords do not match</div> -->
+    <div class='msg-error' ng-show='ptSignupForm.signup_confirm_password.$dirty && ptSignupForm.signup_confirm_password.$error.pwmatch'>
+      Passwords don't match.
+    </div>
     <input type="submit" id="sign_up" value="Sign Up">
   </form>
 </div>

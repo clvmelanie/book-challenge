@@ -29,17 +29,19 @@ angular.module('BookChallenge')
     });
 
     $scope.signUp = function () {
-      $http.post(envService.read('apiUrl') + 'register', {email: $scope.email, password: $scope.password})
-      .then(
-        function(response){
-          $cookies.put('token', response.data.auth_token);
-          $window.location.href = "/#/profile";
-          $rootScope.$broadcast('loggedIn');
-        },
-        function(response){
-          console.log(response);
-        }
-      );
+      if ($scope.password === $scope.confirmPassword) {
+        $http.post(envService.read('apiUrl') + 'register', {email: $scope.email, password: $scope.password})
+        .then(
+          function(response){
+            $cookies.put('token', response.data.auth_token);
+            $window.location.href = "/#/profile";
+            $rootScope.$broadcast('loggedIn');
+          },
+          function(response){
+            console.log(response);
+          }
+        );
+      };
     };
 
     //Facebook login

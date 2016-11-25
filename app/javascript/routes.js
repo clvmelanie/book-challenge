@@ -4,7 +4,8 @@ angular.module("BookChallenge")
     $routeProvider
       .when('/', {
         templateUrl: "components/home/home.html",
-        controller: "HomeController"
+        controller: "HomeController",
+        controllerAs: "homeCtrl"
       })
       .when('/profile', {
         templateUrl: "components/profile/profile.html",

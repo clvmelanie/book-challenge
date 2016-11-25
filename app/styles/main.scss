@@ -19,6 +19,23 @@ footer{
   height: 200px;
 }
 
+textarea:hover,
+input:hover,
+textarea:active,
+input:active,
+textarea:focus,
+input:focus,
+button:focus,
+button:active,
+button:hover,
+label:focus,
+.btn:active,
+.btn.active
+{
+    outline:0px !important;
+    -webkit-appearance:none;
+}
+
 //************** Account *******************
 
 
@@ -41,6 +58,18 @@ footer{
 
 
 //************** Home **********************
+
+input.ng-invalid.ng-dirty {
+  border-color: red;
+  border-style: solid;
+  border-width: 3px;
+}
+
+input.ng-valid.ng-dirty {
+  border-color: #00cc44;
+  border-style: solid;
+  border-width: 3px;
+}
 
 .rtg-intro-blurb {
   font-size: 16px;
