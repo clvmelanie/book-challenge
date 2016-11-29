@@ -34,7 +34,7 @@ angular.module('BookChallenge')
           for (var i = 0; i < response.data.items.length; i++) {
             var volumeInfo = response.data.items[i].volumeInfo;
             var author = !!volumeInfo.authors ? volumeInfo.authors[0] : '';
-            if (!!volumeInfo.imageLinks && volumeInfo.imageLinks.thumbnail) {
+            if (!!volumeInfo.imageLinks && volumeInfo.imageLinks.thumbnail && volumeInfo.pageCount) {
               $scope.bookList.push({
                 author: author,
                 description: volumeInfo.description,
@@ -241,7 +241,7 @@ angular.module('BookChallenge')
 
     //deletes a book from the list and de-highlights the country on the map if it's the only book matching that country
     $scope.deleteBook = function (tome) {
-      var deleteConf = confirm("Delete?");
+      var deleteConf = confirm("Are you sure you want to delete?");
       if (deleteConf) {
         for (var i = 0; i < $scope.userObj.booksRead.length ; i++ ) {
           if (tome.title === $scope.userObj.booksRead[i].title) {

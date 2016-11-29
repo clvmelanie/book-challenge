@@ -291,15 +291,16 @@ input.ng-valid.ng-dirty {
   float: left;
   font-size: 12px;
   margin-left: 10px;
-  max-height: 100px;
+  height: 100px;
   overflow: hidden;
   text-align: left;
-  width: 55%;
+  width: 54%;
 }
 
 #book-cover-img {
-  float:left;
+  float: left;
   max-height: 100px;
+  width: 80px;
 }
 
 #rtg-svg-map {
@@ -390,13 +391,12 @@ input.ng-valid.ng-dirty {
 
 #country-choice-menu {
   float: right;
-  margin-left: 300px;
-  margin-top: -60px;
+  margin-top: 15px;
   width: 75px;
 }
 
 #country-submit-button {
-  margin-top: 40px;
+  margin-top: 5px;
 }
 
 #displayMap {
@@ -464,8 +464,8 @@ input.ng-valid.ng-dirty {
   .book-attributes {
     float: left;
     font-size: 22px;
+    height: 195px;
     margin-left: 25px;
-    max-height: 195px;
     overflow: hidden;
     text-align: left;
     width: 55%;
@@ -473,6 +473,7 @@ input.ng-valid.ng-dirty {
 
   #book-cover-img {
     max-height: 200px;
+    width: 128px;
   }
 
   #book-search-box{
@@ -500,13 +501,12 @@ input.ng-valid.ng-dirty {
 
   #country-choice-menu {
     float: right;
-    margin-left: 500px;
-    margin-top: -110px;
+    margin-top: 40px;
     width: 180px;
   }
 
   #country-submit-button {
-    margin-top: 60px;
+    margin-top: 5px;
   }
 
 }
