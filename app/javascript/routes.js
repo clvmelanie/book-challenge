@@ -9,7 +9,8 @@ angular.module("BookChallenge")
       })
       .when('/profile', {
         templateUrl: "components/profile/profile.html",
-        controller: "ProfileController"
+        controller: "ProfileController",
+        controllerAs: 'profileCtrl'
       })
       .when('/list', {
         templateUrl: "components/list/list.html",

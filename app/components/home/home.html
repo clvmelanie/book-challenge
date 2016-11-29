@@ -1,14 +1,10 @@
 <div class="rtg-intro-statement">Welcome to the ultimate reading adventure!</div>
-
-
 <div id="displayMap"></div>
 
 <div class="rtg-intro-blurb">
     <ul>Experience a bit of the world without leaving home</ul>
     <ul>Fill the map by reading fiction or non-fiction books that take place in different countries around the globe</ul>
 </div>
-
-
 
 <div class="rtg-login-section" id="login-here">
   <div>Continue your journey</div>
@@ -25,7 +21,13 @@
   the FB.login() function when clicked.
 -->
 
-<fb:login-button class="fb-login-button" id="fb-override" data-size="xlarge" scope="public_profile,email" onlogin="checkLoginState();" ng-click="FB.login()">Log in with Facebook</fb:login-button>
+<fb:login-button class="fb-login-button" id="fb-override" data-size="xlarge" scope="public_profile,email" onlogin="onlogin();">Log in with Facebook</fb:login-button>
+
+<script>
+  function onlogin() {
+    angular.element($(".rtg-intro-statement")).scope().onLogin();
+  }
+</script>
 
 <div id="status">
 </div>

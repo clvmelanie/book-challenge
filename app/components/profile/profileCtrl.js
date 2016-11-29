@@ -6,6 +6,10 @@ angular.module('BookChallenge')
   $scope.selectedBook = false;
   $scope.slideDown = false;
   $scope.searchBookTitles = '';
+  $scope.sortOption = '';
+  $scope.data = {
+    countryChoiceMenuSelection: ''
+  };
 
   // When search submit button is clicked, gets requested book data
   // and on success slides the search area down to list results
@@ -105,14 +109,119 @@ angular.module('BookChallenge')
       $scope.userObj.showList = !$scope.userObj.showList;
     };
 
+    //sorts personal book list based on selected option
+    $scope.sortBookList = function (sortOption) {
+      switch (sortOption) {
+            case '1':
+              $scope.userObj.booksRead.sort(function(a, b) {
+                var countryA = a.countryName.toUpperCase(); // ignore upper and lowercase
+                var countryB = b.countryName.toUpperCase(); // ignore upper and lowercase
+                if (countryA < countryB) {
+                  return -1;
+              }
+
+                if (countryA > countryB) {
+                  return 1;
+              }
+
+                // names must be equal
+                return 0;
+                });
+
+                break;
+
+            case '2':
+              $scope.userObj.booksRead.sort(function(a, b) {
+                var countryA = a.countryName.toUpperCase(); // ignore upper and lowercase
+                var countryB = b.countryName.toUpperCase(); // ignore upper and lowercase
+                if (countryA < countryB) {
+                  return 1;
+              }
+
+                if (countryA > countryB) {
+                  return -1;
+              }
+
+                // names must be equal
+                return 0;
+                });
+
+                break;
+
+            case '3':
+              $scope.userObj.booksRead.sort(function (a, b) {
+                if (a.pages > b.pages) {
+                  return 1;
+                }
+                if (a.pages < b.pages) {
+                  return -1;
+                }
+                // a must be equal to b
+                return 0;
+                });
+                  break;
+
+            case '4':
+              $scope.userObj.booksRead.sort(function (a, b) {
+                if (a.pages > b.pages) {
+                  return -1;
+                }
+                if (a.pages < b.pages) {
+                  return 1;
+                }
+                // a must be equal to b
+                return 0;
+                });
+
+                break;
+
+            case '5':
+              $scope.userObj.booksRead.sort(function(a, b) {
+                var titleA = a.title.toUpperCase(); // ignore upper and lowercase
+                var titleB = b.title.toUpperCase(); // ignore upper and lowercase
+                if (titleA < titleB) {
+                  return -1;
+              }
+
+                if (titleA > titleB) {
+                  return 1;
+              }
+
+                // names must be equal
+                return 0;
+                });
+
+                break;
+
+            case '6':
+              $scope.userObj.booksRead.sort(function(a, b) {
+                var titleA = a.title.toUpperCase(); // ignore upper and lowercase
+                var titleB = b.title.toUpperCase(); // ignore upper and lowercase
+                if (titleA < titleB) {
+                  return 1;
+              }
+
+                if (titleA > titleB) {
+                  return -1;
+              }
+
+                // names must be equal
+                return 0;
+                });
+
+                break;
+
+        };
+    };
+
     $timeout(function () {
       $http({
         method: 'GET',
         url: envService.read('apiUrl') + 'books',
         dataType: 'json',
         headers: {
-            "Content-Type": "application/json",
-            "Authorization": "Bearer " + $cookies.get('token')
+          "Content-Type": "application/json",
+          "Authorization": "Bearer " + $cookies.get('token')
         }
       })
       .then(
@@ -130,6 +239,49 @@ angular.module('BookChallenge')
       $scope.selectedBook = book;
     };
 
+    //deletes a book from the list and de-highlights the country on the map if it's the only book matching that country
+    $scope.deleteBook = function (tome) {
+      confirm("Delete?");
+      for (var i = 0; i < $scope.userObj.booksRead.length ; i++ ) {
+        if (tome.title === $scope.userObj.booksRead[i].title) {
+          $scope.userObj.booksRead.splice(i, 1);
+          for (var j = 0; j < $scope.userObj.booksRead.length ; j++) {
+            $scope.countryMatch = false;
+            if (tome.country === $scope.userObj.booksRead[j].country) {
+              $scope.countryMatch = true;
+              };
+            };
+
+            if ($scope.countryMatch === false) {
+              for (var k = 0; k < map.dataProvider.areas.length; k++) {
+                if (tome.country === map.dataProvider.areas[k].id) {
+                  map.dataProvider.areas[k].showAsSelected = false;
+                };
+              };
+            };
+
+
+          $http({
+            method: 'POST',
+            url: envService.read('apiUrl') + 'books/',
+            headers: {
+              "Content-Type": "application/json",
+              'Authorization': 'Bearer ' + $cookies.get('token')
+            },
+            data: {books_read: $scope.userObj.booksRead}
+          })
+          .then(
+             function(response){
+
+             },
+             function(response){
+               console.log(response);
+             }
+           );
+        };
+      };
+    };
+
     $scope.highlightCountries = function () {// Colors in countries the user has read from
       for(var i = 0; i < map.dataProvider.areas.length; i++) {
         for(var j = 0; j < $scope.userObj.booksRead.length; j++) {
@@ -142,12 +294,13 @@ angular.module('BookChallenge')
       };
     };
 
-    $scope.chooseCountry = function(){
+    $scope.chooseCountry = function() {
       for (var i = 0; i < map.dataProvider.areas.length; i++){
-        if(document.getElementById("country-choice-menu").value === map.dataProvider.areas[i].title) {
+        if ($scope.data.countryChoiceMenuSelection.title === map.dataProvider.areas[i].title) {
           $scope.userObj.booksRead.push(
             {
               title: $scope.selectedBook.title,
+              author: $scope.selectedBook.author,
               country: map.dataProvider.areas[i].id,
               countryName: map.dataProvider.areas[i].title,
               pages: $scope.selectedBook.pageCount,

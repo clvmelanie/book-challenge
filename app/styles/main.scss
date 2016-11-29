@@ -146,6 +146,22 @@ input.ng-valid.ng-dirty {
 
 #book-cover-small {
   height: 150px;
+  width: 100px;
+  margin-left: 20px;
+}
+
+.list-item-container {
+  max-height: 200px;
+}
+
+#list-attributes {
+  float: left;
+  height: 150px;
+  width: 80%;
+}
+
+#list-image {
+  float: left;
 }
 
 .rtg-navbar-menu {

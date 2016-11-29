@@ -3,8 +3,26 @@
 <div id="chartdiv" ng-show="!userObj.showList"></div>
 
 <div class="my-book-list" ng-show="userObj.showList">
-  <div ng-repeat="tome in userObj.booksRead">
-   <div><img id="book-cover-small"  ng-src="{{tome.cover}}"></img>{{tome.title}}, {{tome.countryName}}</div>
+  <select ng-model="sortOption" ng-change="sortBookList(sortOption)">
+    <option value="" disabled selected>Sort by</option>
+    <option value="1">Country (A-Z)</option>
+    <option value="2">Country (Z-A)</option>
+    <option value="3">Page Count (low to high)</option>
+    <option value="4">Page Count (high to low)</option>
+    <option value="5">Title (A-Z)</option>
+    <option value="6">Title (Z-A)</option>
+  </select>
+
+  <div class="list-item-container" ng-repeat="tome in userObj.booksRead">
+   <div id="list-image">
+     <span class="glyphicon glyphicon-trash" ng-click="deleteBook(tome)"></span><img id="book-cover-small"  ng-src="{{tome.cover}}"></img>
+   </div>
+   <div id="list-attributes">
+    <b>Title:</b> {{tome.title}}<br>
+    <b>Author:</b> {{tome.author}}<br>
+    <b>Country:</b> {{tome.countryName}}<br>
+    {{tome.pages}} pages
+   </div>
  </div>
 </div>
 
@@ -33,10 +51,10 @@
         {{book.pageCount}} pages<br>
       </div>
         <button id="add-book-button" ng-click="toggleSelectedBook(book)" ng-class="{'cancel-button' : book.addClicked}">{{ book.addClicked === false ? '+ Add Book' : 'Cancel' }}</button>
-        <form ng-show="book.addClicked" ng-submit="chooseCountry(); toggleSelectedBook(book)" class="country-choice-form">
-          <select id="country-choice-menu">
-            <option value="" disabled selected>Select book's country</option>
-            <option ng-repeat="country in mapCountries | orderBy : '-title': 'reverse'" value="{{country.title}}">{{country.title}}</option>
+        <form ng-show="book.addClicked" ng-submit="chooseCountry(); toggleSelectedBook(book);" class="country-choice-form">
+          <select id="country-choice-menu" ng-model="data.countryChoiceMenuSelection"
+            ng-options="country.title for country in mapCountries | orderBy : '-title': 'reverse'">
+            <option value="">Select book's country</option>
           </select>
           <button type="submit" id="country-submit-button">Submit</button>
         </form>

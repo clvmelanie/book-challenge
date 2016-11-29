@@ -10,6 +10,7 @@ angular.module('BookChallenge')
           envService.set('production');
         }
         scope.loggedIn = !!$cookies.get('token');
+        console.log($cookies.getAll());
 
         scope.mouseOver = function () {
           // $('#rtg-dropdown-menu').fadeIn();
@@ -36,7 +37,6 @@ angular.module('BookChallenge')
           // $location.hash('login-here');
           $anchorScroll();
         };
-
 
         scope.goToSignup = function () {
           // $location.hash('signup-here')
