@@ -241,45 +241,47 @@ angular.module('BookChallenge')
 
     //deletes a book from the list and de-highlights the country on the map if it's the only book matching that country
     $scope.deleteBook = function (tome) {
-      confirm("Delete?");
-      for (var i = 0; i < $scope.userObj.booksRead.length ; i++ ) {
-        if (tome.title === $scope.userObj.booksRead[i].title) {
-          $scope.userObj.booksRead.splice(i, 1);
-          for (var j = 0; j < $scope.userObj.booksRead.length ; j++) {
-            $scope.countryMatch = false;
-            if (tome.country === $scope.userObj.booksRead[j].country) {
-              $scope.countryMatch = true;
-              };
-            };
-
-            if ($scope.countryMatch === false) {
-              for (var k = 0; k < map.dataProvider.areas.length; k++) {
-                if (tome.country === map.dataProvider.areas[k].id) {
-                  map.dataProvider.areas[k].showAsSelected = false;
+      var deleteConf = confirm("Delete?");
+      if (deleteConf) {
+        for (var i = 0; i < $scope.userObj.booksRead.length ; i++ ) {
+          if (tome.title === $scope.userObj.booksRead[i].title) {
+            $scope.userObj.booksRead.splice(i, 1);
+            for (var j = 0; j < $scope.userObj.booksRead.length ; j++) {
+              $scope.countryMatch = false;
+              if (tome.country === $scope.userObj.booksRead[j].country) {
+                $scope.countryMatch = true;
                 };
               };
-            };
+
+              if ($scope.countryMatch === false) {
+                for (var k = 0; k < map.dataProvider.areas.length; k++) {
+                  if (tome.country === map.dataProvider.areas[k].id) {
+                    map.dataProvider.areas[k].showAsSelected = false;
+                  };
+                };
+              };
 
 
-          $http({
-            method: 'POST',
-            url: envService.read('apiUrl') + 'books/',
-            headers: {
-              "Content-Type": "application/json",
-              'Authorization': 'Bearer ' + $cookies.get('token')
-            },
-            data: {books_read: $scope.userObj.booksRead}
-          })
-          .then(
-             function(response){
+            $http({
+              method: 'POST',
+              url: envService.read('apiUrl') + 'books/',
+              headers: {
+                "Content-Type": "application/json",
+                'Authorization': 'Bearer ' + $cookies.get('token')
+              },
+              data: {books_read: $scope.userObj.booksRead}
+            })
+            .then(
+               function(response){
 
-             },
-             function(response){
-               console.log(response);
-             }
-           );
+               },
+               function(response){
+                 console.log(response);
+               }
+             );
+          };
         };
-      };
+      }
     };
 
     $scope.highlightCountries = function () {// Colors in countries the user has read from
