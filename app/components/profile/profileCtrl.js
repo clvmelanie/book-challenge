@@ -112,23 +112,22 @@ angular.module('BookChallenge')
     //sorts personal book list based on selected option
     $scope.sortBookList = function (sortOption) {
       switch (sortOption) {
-            case '1':
-              $scope.userObj.booksRead.sort(function(a, b) {
-                var countryA = a.countryName.toUpperCase(); // ignore upper and lowercase
-                var countryB = b.countryName.toUpperCase(); // ignore upper and lowercase
-                if (countryA < countryB) {
-                  return -1;
-              }
+        case '1':
+          $scope.userObj.booksRead.sort(function(a, b) {
+            var countryA = a.countryName.toUpperCase(); // ignore upper and lowercase
+            var countryB = b.countryName.toUpperCase(); // ignore upper and lowercase
+            if (countryA < countryB) {
+              return -1;
+            }
 
-                if (countryA > countryB) {
-                  return 1;
-              }
+            if (countryA > countryB) {
+              return 1;
+            }
 
-                // names must be equal
-                return 0;
-                });
-
-                break;
+            // names must be equal
+            return 0;
+          });
+          break;
 
             case '2':
               $scope.userObj.booksRead.sort(function(a, b) {
@@ -199,18 +198,17 @@ angular.module('BookChallenge')
                 var titleB = b.title.toUpperCase(); // ignore upper and lowercase
                 if (titleA < titleB) {
                   return 1;
-              }
+                }
 
                 if (titleA > titleB) {
                   return -1;
-              }
+                }
 
                 // names must be equal
                 return 0;
-                });
+              });
 
-                break;
-
+              break;
         };
     };
 
@@ -250,17 +248,20 @@ angular.module('BookChallenge')
               $scope.countryMatch = false;
               if (tome.country === $scope.userObj.booksRead[j].country) {
                 $scope.countryMatch = true;
+                break;
+              };
+            };
+
+            if (!$scope.countryMatch) {
+              for (var k = 0; k < map.dataProvider.areas.length; k++) {
+                if (tome.country === map.dataProvider.areas[k].id) {
+                  map.dataProvider.areas[k].showAsSelected = false;
+                  map.returnInitialColor(map.dataProvider.areas[k]);
+                  map.dataProvider.areas[k].customData = '';
+                  break;
                 };
               };
-
-              if ($scope.countryMatch === false) {
-                for (var k = 0; k < map.dataProvider.areas.length; k++) {
-                  if (tome.country === map.dataProvider.areas[k].id) {
-                    map.dataProvider.areas[k].showAsSelected = false;
-                  };
-                };
-              };
-
+            };
 
             $http({
               method: 'POST',
@@ -273,12 +274,12 @@ angular.module('BookChallenge')
             })
             .then(
                function(response){
-
+                 $scope.highlightCountries();
                },
                function(response){
                  console.log(response);
                }
-             );
+            );
           };
         };
       }
@@ -286,10 +287,12 @@ angular.module('BookChallenge')
 
     $scope.highlightCountries = function () {// Colors in countries the user has read from
       for(var i = 0; i < map.dataProvider.areas.length; i++) {
+        map.dataProvider.areas[i].allBookCovers = '';
         for(var j = 0; j < $scope.userObj.booksRead.length; j++) {
           if(map.dataProvider.areas[i].id === $scope.userObj.booksRead[j].country) {
             map.dataProvider.areas[i].showAsSelected = true;
-            map.dataProvider.areas[i].customData = '<br><img src="' + $scope.userObj.booksRead[j].cover + '"></img>';
+            map.dataProvider.areas[i].allBookCovers += '<img style="height:70px; width:50px;" src="' + $scope.userObj.booksRead[j].cover + '"></img>';
+            map.dataProvider.areas[i].customData = '<br>' + map.dataProvider.areas[i].allBookCovers;
             map.returnInitialColor(map.dataProvider.areas[i]);
           };
         };

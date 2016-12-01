@@ -14,15 +14,15 @@
   </select>
 
   <div class="list-item-container" ng-repeat="tome in userObj.booksRead">
-   <div id="list-image">
+   <span id="list-image">
      <span class="glyphicon glyphicon-trash" ng-click="deleteBook(tome)"></span><img id="book-cover-small"  ng-src="{{tome.cover}}"></img>
-   </div>
-   <div id="list-attributes">
+   </span>
+   <span id="list-attributes">
     <b>Title:</b> {{tome.title}}<br>
     <b>Author:</b> {{tome.author}}<br>
     <b>Country:</b> {{tome.countryName}}<br>
     {{tome.pages}} pages
-   </div>
+  </span>
  </div>
 </div>
 
